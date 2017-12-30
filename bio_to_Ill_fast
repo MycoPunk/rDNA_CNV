@@ -95,7 +95,7 @@ split_table <- split(draws.df,groups)
 
 
 #capture the output of each subtable 
-for(i in 1:length(d)){
+for(i in 1:length(split_table)){
   captureOutput(apply(draws.df, 1, function(x) make_fastq_comp(df = (split_table[[i]]))), file = "Illumina_type_Pbio_reads.fasta", append = TRUE)
 }
 
