@@ -3,9 +3,7 @@
 #PBS -m abe 
 #PBS -M llofgren@umn.edu
 
-
-##To run as a batch script: 1)log into mesabi 2) navigate to the working directory of your project, make sure that directory has this file and both the read1 and read2 sub-directories 3) type in "qsub KennedyLab_FAST_its2_pipeline_batch_XXXXXXX.sh". 
-#Remember to change the email address in the fourth line of file if you are not kennedyp and to change the walltime if you are running larger data set.
+#modified version of FASTpipeline to handle Kennedy Lab ITS2 dual index amplicons 
 
 #Move to specific working directory in Projects. Double check the "read1" and "read2" folders make sure they have the same number of files in them. 
 cd /panfs/roc/groups/5/kennedyp/shared/Projects/LotusAmanda/ITS2
