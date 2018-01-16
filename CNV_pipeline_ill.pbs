@@ -1,0 +1,92 @@
+#!/bin/bash -l 
+#PBS -l walltime=72:00:00,mem=62gb,nodes=2:ppn=20
+#PBS -m abe 
+#PBS -M llofgren@umn.edu
+
+cd /scratch.global/llofgren/A_muscaria
+
+module load bowtie2 
+
+#index the ‘references’ uses the format : bowtie2-build -f [reference file] [output name]
+bowtie2-build -f /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_ITS_IR.fasta A_muscaria_ITS_ref
+bowtie2-build -f /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_LSU_IR.fasta A_muscaria_LSU_ref
+bowtie2-build -f /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_GAPDH_IR.fasta A_muscaria_GAPDH_ref
+bowtie2-build -f /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_RPB2_IR.fasta A_muscaria_RPB2_ref
+bowtie2-build -f /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_GH63_IR.fasta A_muscaria_GH63_ref
+bowtie2-build -f /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_RPB1_IR.fasta A_muscaria_RPB1_ref
+bowtie2-build -f /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_ELF1_IR.fasta A_muscaria_ELF1_ref
+bowtie2-build -f /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_G6PDH_IR.fasta A_muscaria_G6PDH_ref
+bowtie2-build -f /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_MCM7_IR.fasta A_muscaria_MCM7_ref
+bowtie2-build -f /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_MLS_IR.fasta A_muscaria_MLS_ref
+bowtie2-build -f /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_LYS2_IR.fasta A_muscaria_LYS2_ref
+bowtie2-build -f /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_TOP2_IR.fasta A_muscaria_TOP2_ref
+
+
+#add argument -p 20 to increase the number of processors used for this command
+#aligment uses the format: bowtie2 [options]* -x <bt2-idx> {-1 <m1> -2 <m2> | -U <r>} [-S <sam>]
+bowtie2 --very-sensitive-local -p 20 -x A_muscaria_ITS_ref -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_1.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_2.fastq -S A_muscaria_ITS.sam
+bowtie2 --very-sensitive-local -p 20 -x A_muscaria_LSU_ref -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_1.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_2.fastq -S A_muscaria_LSU.sam
+bowtie2 --very-sensitive-local -p 20 -x A_muscaria_GAPDH_ref -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_1.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_2.fastq -S A_muscaria_GAPDH.sam
+bowtie2 --very-sensitive-local -p 20 -x A_muscaria_RPB2_ref -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_1.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_2.fastq -S A_muscaria_RPB2.sam
+bowtie2 --very-sensitive-local -p 20 -x A_muscaria_GH63_ref -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_1.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_2.fastq -S A_muscaria_GH63.sam
+bowtie2 --very-sensitive-local -p 20 -x A_muscaria_RPB1_ref -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_1.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_2.fastq -S A_muscaria_RPB1.sam
+bowtie2 --very-sensitive-local -p 20 -x A_muscaria_ELF1_ref -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_1.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_2.fastq -S A_muscaria_ELF1.sam
+bowtie2 --very-sensitive-local -p 20 -x A_muscaria_G6PDH_ref -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_1.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_2.fastq -S A_muscaria_G6PDH.sam
+bowtie2 --very-sensitive-local -p 20 -x A_muscaria_MCM7_ref -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_1.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_2.fastq -S A_muscaria_MCM7.sam
+bowtie2 --very-sensitive-local -p 20 -x A_muscaria_MLS_ref -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_1.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_2.fastq -S A_muscaria_MLS.sam
+bowtie2 --very-sensitive-local -p 20 -x A_muscaria_LYS2_ref -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_1.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_2.fastq -S A_muscaria_LYS2.sam
+bowtie2 --very-sensitive-local -p 20 -x A_muscaria_TOP2_ref -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_1.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_mus_CTTGTA_read_2.fastq -S A_muscaria_TOP2.sam
+
+
+module unload bowtie2
+
+module load samtools/1.3
+
+#convert SAM to BAM
+samtools view -b A_muscaria_ITS.sam > A_muscaria_ITS.bam
+samtools view -b A_muscaria_LSU.sam > A_muscaria_LSU.bam
+samtools view -b A_muscaria_GAPDH.sam > A_muscaria_GAPDH.bam
+samtools view -b A_muscaria_RPB2.sam > A_muscaria_RPB2.bam
+samtools view -b A_muscaria_GH63.sam > A_muscaria_GH63.bam
+samtools view -b A_muscaria_RPB1.sam > A_muscaria_RPB1.bam
+samtools view -b A_muscaria_ELF1.sam > A_muscaria_ELF1.bam
+samtools view -b A_muscaria_G6PDH.sam > A_muscaria_G6PDH.bam
+samtools view -b A_muscaria_MCM7.sam > A_muscaria_MCM7.bam
+samtools view -b A_muscaria_MLS.sam > A_muscaria_MLS.bam
+samtools view -b A_muscaria_LYS2.sam > A_muscaria_LYS2.bam
+samtools view -b A_muscaria_TOP2.sam > A_muscaria_TOP2.bam
+
+
+#sort BAM files
+samtools sort -T A_muscaria_tempITS  -o A_muscaria_ITS_sorted.bam -O bam A_muscaria_ITS.bam
+samtools sort -T A_muscaria_tempLSU  -o A_muscaria_LSU_sorted.bam -O bam A_muscaria_LSU.bam
+samtools sort -T A_muscaria_tempGAPDH  -o A_muscaria_GAPDH_sorted.bam -O bam A_muscaria_GAPDH.bam
+samtools sort -T A_muscaria_tempRPB2  -o A_muscaria_RPB2_sorted.bam -O bam A_muscaria_RPB2.bam
+samtools sort -T A_muscaria_tempGH63  -o A_muscaria_GH63_sorted.bam -O bam A_muscaria_GH63.bam
+samtools sort -T A_muscaria_tempRPB1  -o A_muscaria_RPB1_sorted.bam -O bam A_muscaria_RPB1.bam
+samtools sort -T A_muscaria_tempELF1  -o A_muscaria_ELF1_sorted.bam -O bam A_muscaria_ELF1.bam
+samtools sort -T A_muscaria_tempG6PDH  -o A_muscaria_G6PDH_sorted.bam -O bam A_muscaria_G6PDH.bam
+samtools sort -T A_muscaria_tempMCM7  -o A_muscaria_MCM7_sorted.bam -O bam A_muscaria_MCM7.bam
+samtools sort -T A_muscaria_tempMLS  -o A_muscaria_MLS_sorted.bam -O bam A_muscaria_MLS.bam
+samtools sort -T A_muscaria_tempLYS2  -o A_muscaria_LYS2_sorted.bam -O bam A_muscaria_LYS2.bam
+samtools sort -T A_muscaria_tempTOP2  -o A_muscaria_TOP2_sorted.bam -O bam A_muscaria_TOP2.bam
+
+
+##to get depth
+#calculate depth on whole regions - note -q 20 for illumina reads 
+samtools depth -d 1000000 -a -q 20 A_muscaria_ITS_sorted.bam > /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_depth_ITS_Q0_a.txt
+samtools depth -d 1000000 -a -q 20 A_muscaria_LSU_sorted.bam > /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_depth_LSU_Q0_a.txt
+samtools depth -d 1000000 -a -q 20 A_muscaria_GAPDH_sorted.bam > /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_depth_GAPDH_Q0_a.txt
+samtools depth -d 1000000 -a -q 20 A_muscaria_RPB2_sorted.bam > /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_depth_RPB2_Q0_a.txt
+samtools depth -d 1000000 -a -q 20 A_muscaria_GH63_sorted.bam > /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_depth_GH63_Q0_a.txt
+samtools depth -d 1000000 -a -q 20 A_muscaria_RPB1_sorted.bam > /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_depth_RPB1_Q0_a.txt
+samtools depth -d 1000000 -a -q 20 A_muscaria_ELF1_sorted.bam > /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_depth_ELF1_Q0_a.txt
+samtools depth -d 1000000 -a -q 20 A_muscaria_G6PDH_sorted.bam > /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_depth_G6PDH_Q0_a.txt
+samtools depth -d 1000000 -a -q 20 A_muscaria_MCM7_sorted.bam > /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_depth_MCM7_Q0_a.txt
+samtools depth -d 1000000 -a -q 20 A_muscaria_MLS_sorted.bam > /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_depth_MLS_Q0_a.txt
+samtools depth -d 1000000 -a -q 20 A_muscaria_LYS2_sorted.bam > /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_depth_LYS2_Q0_a.txt
+samtools depth -d 1000000 -a -q 20 A_muscaria_TOP2_sorted.bam > /home/kennedyp/llofgren/genomes/other_ECM_genomes/A_muscaria/A_muscaria_depth_TOP2_Q0_a.txt
+
+
+#to remove the temp file
+rm -rf /scratch.global/llofgren/A_muscaria
