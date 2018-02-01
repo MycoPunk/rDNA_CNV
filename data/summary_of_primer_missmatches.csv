@@ -1,0 +1,20 @@
+Species ,F_sequencing_primer,R_sequencing primer ,ITS1_F_PCR_primer,ITS1_R_PCR_primer,ITS2_F_PCR_primer,ITS2_R_PCR_primer
+Amanita muscaria,0,1,0,0,0,2
+Boletus edulis,0,1,0,0,0,2
+Cenococcum geophilum,0,1,0,0,0,2
+Gyrodon lividus,0,1,0,0,0,2
+Hebeloma cylindrosporum,0,1,0,0,0,2
+Hydnum rufescens ,0,1,0,0,0,2
+Laccaria amethystina,0,1,0,0,0,2
+Paxillus adelphus,0,1,0,0,0,2
+Paxillus involutus ,2,1,0,0,0,2
+Piloderma croceum ,0,1,0,0,0,2
+Scleroderma citrinum,0,1,0,0,0,2
+Suillus americanus,1,1,1,0,0,2
+Suillus brevipes,1,0,1,0,0,2
+Suillus decipiens,1,1,1,0,0,2
+Suillus granulatus,1,1,1,0,0,2
+Suillus hirtellus,1,0,1,0,0,2
+Suillus luteus,1,1,1,0,0,2
+Wilcoxina mikolae,0,1,0,0,0,2
+Rhizopogon vinicolor,1,0,1,0,0,2
