@@ -1,0 +1,15 @@
+OTU_ID,LL_21_ind_all_ts,LL_22_ind_all_ts,LL_23_cta_all_ts,LL_24_cta_all_ts,taxonomy,Query_length,Query_aligned_length,Pident,Threshold
+OTU_5,115,154,1966,1682,Hebeloma_cylindrosporum,327,321,99.7,above_assignment_threshold
+OTU_7,102,130,1667,1425,Laccaria_amethystina,318,313,98.7,above_assignment_threshold
+OTU_13,91,153,669,606,Suillus_decipiens,335,328,99.7,above_assignment_threshold
+OTU_16,115,150,611,551,Piloderma_croceum,300,294,99.7,above_assignment_threshold
+OTU_20,73,152,554,517,Paxillus_involutus,347,346,99.4,above_assignment_threshold
+OTU_27,69,129,248,250,Suillus_granulatus,346,342,99.7,above_assignment_threshold
+OTU_31,88,121,186,142,Suillus_americanus,348,342,99.4,above_assignment_threshold
+OTU_32,131,163,114,85,Suillus_luteus,351,345,99.7,above_assignment_threshold
+OTU_38,131,0,142,121,Cenococcum_geophilum,258,252,99.2,above_assignment_threshold
+OTU_46,71,0,98,106,Amanita_muscaria,338,332,99.1,above_assignment_threshold
+OTU_52,60,50,68,73,Suillus_hirtellus,349,342,98.3,above_assignment_threshold
+OTU_53,58,0,87,104,Scleroderma_citrinum,356,350,100,above_assignment_threshold
+OTU_184,2,2,11,2,Wilcoxina_mikolae,276,276,98.2,above_assignment_threshold
+N/A,0,0,0,0,Suillus_brevipes,,,,
