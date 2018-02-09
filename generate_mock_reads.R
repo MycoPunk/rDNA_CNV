@@ -1,13 +1,13 @@
 #This script takes in the mock genome and takes random draws to simulate illumina-like 101bp reads
-#which can then be used in read depth analysis. This script generates 1M interleaved paired-end (-1, -2) reads.
-#the .pbs submission scrip (included below) was submitted using job chaining, in 100 itterations to produce a total 100M paired end reads. 
+#which can then be used in read depth analysis. This script generates 0.1M interleaved paired-end (-1, -2) reads.
+#the .pbs submission scrip (included below) was submitted using job chaining, in 100 itterations to produce a total 10M paired end reads per chain submission. 
 
 
 ##################################chained submission 
 #!/bin/bash
 one=$(qsub generate_mock_reads.pbs)
 echo $one 
-for id in seq 2 100; do 
+for id in seq `seq 2 100`; do 
  two=$(qsub -W depend=afterok:$one generate_mock_reads.pbs)
  one=$two
 done
