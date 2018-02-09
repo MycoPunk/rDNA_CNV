@@ -14,7 +14,7 @@ done
 
 ##################################.pbs script
 #!/bin/bash -l 
-#PBS -l walltime=60:00:00,mem=62gb,nodes=1:ppn=20
+#PBS -l walltime=15:00:00,mem=62gb,nodes=1:ppn=20
 #PBS -m abe 
 #PBS -M llofgren@umn.edu
 
