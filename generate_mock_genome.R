@@ -34,18 +34,18 @@ S_brevipes_multi_IR_60 <- rep(c(S_brevipes_ITS_IR, S_brevipes_LSU_IR), 60)
 S_brevipes_multi_IR_60_reps <- paste(S_brevipes_multi_IR_60, collapse = "")
 
 
-#get length to 1000bp buffer of each gene or cat
-len_ITS_LSU <- nchar(S_brevipes_multi_IR_60_reps) + 1000
-len_RPB2 <- nchar(S_brevipes_RPB2_IR) + 1000
-len_GAPDH <- nchar(S_brevipes_GAPDH_IR) + 1000
-len_RPB1 <- nchar(S_brevipes_RPB1_IR) + 1000
-len_RPB1 <- nchar(S_brevipes_RPB1_IR) + 1000
-len_ELF1 <- nchar(S_brevipes_ELF1_IR) + 1000
-len_GH63 <- nchar(S_brevipes_GH63_IR) + 1000
-len_MCM7 <- nchar(S_brevipes_MCM7_IR) + 1000
-len_G6PDH <- nchar(S_brevipes_G6PDH_IR) + 1000
-len_MLS <- nchar(S_brevipes_MLS_IR) + 1000
-len_LYS2 <- nchar(S_brevipes_LYS2_IR) + 1000
+#get length to 5000000bp buffer of each gene or cat
+len_ITS_LSU <- nchar(S_brevipes_multi_IR_60_reps) + 5000000
+len_RPB2 <- nchar(S_brevipes_RPB2_IR) + 5000000
+len_GAPDH <- nchar(S_brevipes_GAPDH_IR) + 5000000
+len_RPB1 <- nchar(S_brevipes_RPB1_IR) + 5000000
+len_RPB1 <- nchar(S_brevipes_RPB1_IR) + 5000000
+len_ELF1 <- nchar(S_brevipes_ELF1_IR) + 5000000
+len_GH63 <- nchar(S_brevipes_GH63_IR) + 5000000
+len_MCM7 <- nchar(S_brevipes_MCM7_IR) + 5000000
+len_G6PDH <- nchar(S_brevipes_G6PDH_IR) + 5000000
+len_MLS <- nchar(S_brevipes_MLS_IR) + 5000000
+len_LYS2 <- nchar(S_brevipes_LYS2_IR) + 5000000
 
 
 #insert multi-copy cassette into synthetic genome
