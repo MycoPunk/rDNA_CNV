@@ -1,0 +1,82 @@
+
+
+####
+#This script gets internal reference .fastq files for a given species, 
+that can then be formatted as fasta files and run through the ITS CNV pipeline 
+for greater acuracy, if you have reason to suspect that reference sequences 
+do not match the true sequence of the strain under investigation.
+####
+
+
+#!/bin/bash -l 
+#PBS -l walltime=24:00:00,mem=62gb,nodes=2:ppn=20
+#PBS -m abe 
+#PBS -M llofgren@umn.edu
+
+###This script returns a consensus fastq for downstream phylogenetic alignment 
+
+cd /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus
+
+module load bowtie2 
+
+#index reference sequence 
+bowtie2-build P_microcarpus_ITS_IR.fasta ITS_REF_region
+bowtie2-build P_microcarpus_LSU_IR.fasta LSU_REF_region
+bowtie2-build P_microcarpus_RPB1_IR.fasta RPB1_REF_region
+bowtie2-build P_microcarpus_RPB2_IR.fasta RPB2_REF_region
+bowtie2-build P_microcarpus_GAPDH_IR.fasta GAPDH_REF_region
+bowtie2-build P_microcarpus_ELF1_IR.fasta ELF1_REF_region
+bowtie2-build P_microcarpus_GH63_IR.fasta GH63_REF_region
+bowtie2-build P_microcarpus_MCM7_IR.fasta MCM7_REF_region
+bowtie2-build P_microcarpus_G6PDH_IR.fasta G6PDH_REF_region
+bowtie2-build P_microcarpus_MLS_IR.fasta MLS_REF_region
+bowtie2-build P_microcarpus_LYS2_IR.fasta LYS2_REF_region
+bowtie2-build P_microcarpus_TOP2_IR.fasta ITS_REF_region
+
+
+#map the reads to the reference 
+bowtie2 -x ITS_REF_region -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq --no-unal -S ITS.sam
+bowtie2 -x LSU_REF_region -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq --no-unal -S LSU.sam
+bowtie2 -x RPB1_REF_region -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq --no-unal -S RPB1.sam
+bowtie2 -x RPB2_REF_region -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq --no-unal -S RPB2.sam
+bowtie2 -x GAPDH_REF_region -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq --no-unal -S GAPDH.sam
+bowtie2 -x EFL1_REF_region -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq --no-unal -S ELF1.sam
+bowtie2 -x GH63_REF_region -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq --no-unal -S GH63.sam
+bowtie2 -x MCM7_REF_region -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq --no-unal -S MCM7.sam
+bowtie2 -x G6PDH_REF_region -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq --no-unal -S G6PDH.sam
+bowtie2 -x MLS_REF_region -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq --no-unal -S MLS.sam
+bowtie2 -x LYS2_REF_region -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq --no-unal -S LYS2.sam
+bowtie2 -x TOP2_REF_region -1 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq -2 /home/kennedyp/llofgren/genomes/other_ECM_genomes/Pisolithus_microcarpus/P_microcarpus_1_.fastq --no-unal -S TOP2.sam
+
+
+module load samtools/1.3
+module load bcftools
+
+# sort sam file, convert to bam file
+samtools view -bS ITS.sam | samtools sort - -o ITS.bam
+samtools view -bS LSU.sam | samtools sort - -o LSU.bam
+samtools view -bS RPB1.sam | samtools sort - -o RPB1.bam
+samtools view -bS RPB2.sam | samtools sort - -o RPB2.bam
+samtools view -bS GAPDH.sam | samtools sort - -o GAPDH.bam
+samtools view -bS ELF1.sam | samtools sort - -o ELF1.bam
+samtools view -bS GH63.sam | samtools sort - -o GH63.bam
+samtools view -bS MCM7.sam | samtools sort - -o MCM7.bam
+samtools view -bS G6PDH.sam | samtools sort - -o G6PDH.bam
+samtools view -bS MLS.sam | samtools sort - -o MLS.bam
+samtools view -bS LYS2.sam | samtools sort - -o LYS2.bam
+samtools view -bS TOP2.sam | samtools sort - -o TOP2.bam
+
+
+# Get consensus fastq
+samtools mpileup -uf P_microcarpus_ITS_IR.fasta ITS.bam | bcftools call -c | vcfutils.pl vcf2fq > P_microcarpus_ITS_consesus.fastq
+samtools mpileup -uf P_microcarpus_LSU_IR.fasta LSU.bam | bcftools call -c | vcfutils.pl vcf2fq > P_microcarpus_LSU_consesus.fastq
+samtools mpileup -uf P_microcarpus_RPB1_IR.fasta RPB1.bam | bcftools call -c | vcfutils.pl vcf2fq > P_microcarpus_RPB1_consesus.fastq
+samtools mpileup -uf P_microcarpus_RPB2_IR.fasta RPB2.bam | bcftools call -c | vcfutils.pl vcf2fq > P_microcarpus_RPB2_consesus.fastq
+samtools mpileup -uf P_microcarpus_GAPDH_IR.fasta GAPDH.bam | bcftools call -c | vcfutils.pl vcf2fq > P_microcarpus_GAPDH_consesus.fastq
+samtools mpileup -uf P_microcarpus_ELF1_IR.fasta ELF1.bam | bcftools call -c | vcfutils.pl vcf2fq > P_microcarpus_ELF1_consesus.fastq
+samtools mpileup -uf P_microcarpus_GH63_IR.fasta GH63.bam | bcftools call -c | vcfutils.pl vcf2fq > P_microcarpus_GH63_consesus.fastq
+samtools mpileup -uf P_microcarpus_MCM7_IR.fasta MCM7.bam | bcftools call -c | vcfutils.pl vcf2fq > P_microcarpus_MCM7_consesus.fastq
+samtools mpileup -uf P_microcarpus_G6PDH_IR.fasta G6PDH.bam | bcftools call -c | vcfutils.pl vcf2fq > P_microcarpus_G6PDH_consesus.fastq
+samtools mpileup -uf P_microcarpus_MLS_IR.fasta MLS.bam | bcftools call -c | vcfutils.pl vcf2fq > P_microcarpus_MLS_consesus.fastq
+samtools mpileup -uf P_microcarpus_LYS2_IR.fasta LYS2.bam | bcftools call -c | vcfutils.pl vcf2fq > P_microcarpus_LYS2_consesus.fastq
+samtools mpileup -uf P_microcarpus_TOP2_IR.fasta TOP2.bam | bcftools call -c | vcfutils.pl vcf2fq > P_microcarpus_TOP2_consesus.fastq
