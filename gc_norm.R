@@ -1,41 +1,40 @@
-
 #set directory
-setwd("~/Desktop/Project_ITS_CNV/genes and depth files/A_muscaria_1904")
+setwd("~/Desktop/Project_ITS_CNV/genes and depth files/Rots_and_saps/")
 
 #set libraries
 library(Biostrings)
 
 ##read in fasta files
 #single-copy
-ELF1_fasta<- readDNAStringSet("A_muscaria_ELF1_IR.fasta")[[1]]
-G6PDH_fasta<- readDNAStringSet("A_muscaria_G6PDH_IR.fasta")[[1]] 
-GAPDH_fasta<- readDNAStringSet("A_muscaria_GAPDH_IR.fasta")[[1]] 
-GH63_fasta<- readDNAStringSet("A_muscaria_GH63_IR.fasta")[[1]] 
-LYS2_fasta<- readDNAStringSet("A_muscaria_LYS2_IR.fasta")[[1]] 
-MCM7_fasta<- readDNAStringSet("A_muscaria_MCM7_IR.fasta")[[1]] 
-MLS_fasta<- readDNAStringSet("A_muscaria_MLS_IR.fasta")[[1]] 
-RPB1_fasta<- readDNAStringSet("A_muscaria_RPB1_IR.fasta")[[1]] 
-RPB2_fasta<- readDNAStringSet("A_muscaria_RPB2_IR.fasta")[[1]] 
-TOP2_fasta<- readDNAStringSet("A_muscaria_TOP2_IR.fasta")[[1]] 
+ELF1_fasta<- readDNAStringSet("P_striiformis_PST-78_ELF1_IR.fasta")[[1]]
+G6PDH_fasta<- readDNAStringSet("P_striiformis_PST-78_G6PDH_IR.fasta")[[1]] 
+GAPDH_fasta<- readDNAStringSet("P_striiformis_PST-78_GAPDH_IR.fasta")[[1]] 
+GH63_fasta<- readDNAStringSet("P_striiformis_PST-78_GH63_IR.fasta")[[1]] 
+LYS2_fasta<- readDNAStringSet("P_striiformis_PST-78_LYS2_IR.fasta")[[1]] 
+MCM7_fasta<- readDNAStringSet("P_striiformis_PST-78_MCM7_IR.fasta")[[1]] 
+MLS_fasta<- readDNAStringSet("P_striiformis_PST-78_MLS_IR.fasta")[[1]] 
+RPB1_fasta<- readDNAStringSet("P_striiformis_PST-78_RPB1_IR.fasta")[[1]] 
+RPB2_fasta<- readDNAStringSet("P_striiformis_PST-78_RPB2_IR.fasta")[[1]] 
+TOP2_fasta<- readDNAStringSet("P_striiformis_PST-78_TOP2_IR.fasta")[[1]] 
 #multi-copy
-ITS_fasta<- readDNAStringSet("A_muscaria_ITS_IR.fasta")[[1]] 
-LSU_fasta<- readDNAStringSet("A_muscaria_LSU_IR.fasta")[[1]] 
+ITS_fasta<- readDNAStringSet("P_striiformis_PST-78_ITS_IR.fasta")[[1]] 
+LSU_fasta<- readDNAStringSet("P_striiformis_PST-78_LSU_IR.fasta")[[1]] 
 
-##read in depth files
+##read in depth filrepeats_point5M_again.fastaes
 #single-copy
-ELF1_table<- read.table("A_muscaria_1904_ELF1_depth_raw.txt")
-G6PDH_table<- read.table("A_muscaria_1904_G6PDH_depth_raw.txt")
-GAPDH_table<- read.table("A_muscaria_1904_GAPDH_depth_raw.txt")
-GH63_table<- read.table("A_muscaria_1904_GH63_depth_raw.txt")
-LYS2_table<- read.table("A_muscaria_1904_LYS2_depth_raw.txt")
-MCM7_table<- read.table("A_muscaria_1904_MCM7_depth_raw.txt")
-MLS_table<- read.table("A_muscaria_1904_MLS_depth_raw.txt")
-RPB1_table<- read.table("A_muscaria_1904_RPB1_depth_raw.txt")
-RPB2_table<- read.table("A_muscaria_1904_RPB2_depth_raw.txt")
-TOP2_table<- read.table("A_muscaria_1904_TOP2_depth_raw.txt")
+ELF1_table<- read.table("P_striiformis_PST-78_ELF1_depth.txt")
+G6PDH_table<- read.table("P_striiformis_PST-78_G6PDH_depth.txt")
+GAPDH_table<- read.table("P_striiformis_PST-78_GAPDH_depth.txt")
+GH63_table<- read.table("P_striiformis_PST-78_GH63_depth.txt")
+LYS2_table<- read.table("P_striiformis_PST-78_LYS2_depth.txt")
+MCM7_table<- read.table("P_striiformis_PST-78_MCM7_depth.txt")
+MLS_table<- read.table("P_striiformis_PST-78_MLS_depth.txt")
+RPB1_table<- read.table("P_striiformis_PST-78_RPB1_depth.txt")
+RPB2_table<- read.table("P_striiformis_PST-78_RPB2_depth.txt")
+TOP2_table<- read.table("P_striiformis_PST-78_TOP2_depth.txt")
 #multi-copy
-ITS_table<- read.table("A_muscaria_1904_ITS_depth_raw.txt")
-LSU_table<- read.table("A_muscaria_1904_LSU_depth_raw.txt")
+ITS_table<- read.table("P_striiformis_PST-78_ITS_depth.txt")
+LSU_table<- read.table("P_striiformis_PST-78_LSU_depth.txt")
 
 ##attach bp ident. to table
 #single-copy
@@ -52,6 +51,23 @@ TOP2_table<-cbind(TOP2_table, TOP2_fasta)
 #multi-copy
 ITS_table<-cbind(ITS_table, ITS_fasta)
 LSU_table<-cbind(LSU_table, LSU_fasta)
+
+
+#delete row if there's an ambiguity code 
+BP_list<- c("A", "C", "T", "G")
+ELF1_table<- ELF1_table[ELF1_table$ELF1_fasta %in% BP_list, ]
+G6PDH_table<- G6PDH_table[G6PDH_table$G6PDH_fasta %in% BP_list, ]
+GAPDH_table<- GAPDH_table[GAPDH_table$GAPDH_fasta %in% BP_list, ]
+GH63_table<- GH63_table[GH63_table$GH63_fasta %in% BP_list, ]
+LYS2_table<- LYS2_table[LYS2_table$LYS2_fasta %in% BP_list, ]
+MCM7_table<- GAPDH_table[MCM7_table$MCM7_fasta %in% BP_list, ]
+MLS_table<- MLS_table[MLS_table$MLS_fasta %in% BP_list, ]
+RPB1_table<- RPB1_table[RPB1_table$RPB1_fasta %in% BP_list, ]
+RPB2_table<- RPB2_table[RPB2_table$RPB2_fasta %in% BP_list, ]
+TOP2_table<- TOP2_table[TOP2_table$TOP2_fasta %in% BP_list, ]
+#multi copy
+ITS_table<- ITS_table[ITS_table$ITS_fasta %in% BP_list, ]
+LSU_table<- LSU_table[LSU_table$LSU_fasta %in% BP_list, ]
 
 
 ##function to calculate GC within 100 bp of the target bp
@@ -102,21 +118,21 @@ ITS_table<- na.omit(cbind(ITS_table, ITS.bins))
 LSU_table<- na.omit(cbind(LSU_table, LSU.bins))
 
 ##changes the names so that they match and can be merged 
-new.names <- c("sp.", "bp.pos", "long.depth","bp", "gc.bin")
+NEW.names <- c("sp.", "bp.pos", "long.depth","bp", "gc.bin")
 #single-copy
-colnames(ELF1_table) <- new.names
-colnames(G6PDH_table) <- new.names
-colnames(GAPDH_table) <- new.names
-colnames(GH63_table) <- new.names
-colnames(LYS2_table) <- new.names
-colnames(MCM7_table) <- new.names
-colnames(MLS_table) <- new.names
-colnames(RPB1_table) <- new.names
-colnames(RPB2_table) <- new.names
-colnames(TOP2_table) <- new.names
+colnames(ELF1_table) <- NEW.names
+colnames(G6PDH_table) <- NEW.names
+colnames(GAPDH_table) <- NEW.names
+colnames(GH63_table) <- NEW.names
+colnames(LYS2_table) <- NEW.names
+colnames(MCM7_table) <- NEW.names
+colnames(MLS_table) <- NEW.names
+colnames(RPB1_table) <- NEW.names
+colnames(RPB2_table) <- NEW.names
+colnames(TOP2_table) <- NEW.names
 ##multi-copy
-colnames(ITS_table) <- new.names
-colnames(LSU_table) <- new.names
+colnames(ITS_table) <- NEW.names
+colnames(LSU_table) <- NEW.names
 
 ##chop first and last 50 pb to use for bin ave. calculation 
 #single-copy
@@ -185,7 +201,7 @@ all_SC_gene_tables<- rbind(ELF1_table_chop,
                            LYS2_table_chop,
                            MCM7_table_chop,
                            MLS_table_chop,
-                           #RPB1_table_chop,
+                           RPB1_table_chop,
                            RPB2_table_chop,
                            TOP2_table_chop)
 
@@ -196,9 +212,8 @@ all_SC_bins<- median(all_SC_gene_tables[,3])
 #get depth medians for each unique bin 
 depth.ea.bin.all<- aggregate(data = all_SC_gene_tables, all_SC_gene_tables[,3]~all_SC_gene_tables[,5], FUN = median) 
 
-#ugly function to adjust depth by GC bins 
+#Function to adjust depth by GC bins 
 cor.depth <- function(depth.df){
-  #this function takes ...
   result  <- seq(from=1, to=(nrow(depth.df))) 
   x <- all_SC_bins #ave RD over all single copy genes
   for(i in 1:nrow(depth.df)){ 
@@ -221,9 +236,11 @@ adj.GH63<- mean(cor.depth(depth.df = GH63_table_chop))
 adj.LYS2<- mean(cor.depth(depth.df = LYS2_table_chop))  
 adj.MCM7<- mean(cor.depth(depth.df = MCM7_table_chop))
 adj.MLS<- mean(cor.depth(depth.df = MLS_table_chop))
-#adj.RPB1<- mean(cor.depth(depth.df = RPB1_table_chop))
+adj.RPB1<- mean(cor.depth(depth.df = RPB1_table_chop))
 adj.RPB2<- mean(cor.depth(depth.df = RPB2_table_chop))
 adj.TOP2<- mean(cor.depth(depth.df = TOP2_table_chop))  
+
+
 
 #make a list of adjusted means 
 #hash out genes above or below ab-line in graph
@@ -234,7 +251,7 @@ adjusted.means<- c(adj.ELF1,
                    adj.LYS2,
                    adj.MCM7,
                    adj.MLS,
-                   #adj.RPB1,
+                   adj.RPB1,
                    adj.RPB2,
                    adj.TOP2)
 
@@ -245,7 +262,7 @@ names<-          c("ELF1=",
                    "LYS2=",
                    "MCM7=",
                    "MLS=",
-                   #"RPB1=",
+                   "RPB1=",
                    "RPB2=",
                    "TOP2=")
 
@@ -289,19 +306,33 @@ corrected.LSU.dep<- cor.depth.multi_LSU(depth.df = LSU_table_chop)
 mean.LSU.corrected<- mean(corrected.LSU.dep)
 mean.LSU.corrected
 
+#Average depth
+SCG_ave<- mean(adjusted.means)
+MC_ave<- (mean.LSU.corrected + mean.ITS.corrected) /2
 
+#Estimated Copy Number of rDNA cassette 
+CN_est<- ceiling(MC_ave / SCG_ave)
 
 
 #generate output
+#individual totals
 df<- data.frame(cbind(names, adjusted.means))
-write.table(df, file = "A_muscaria_1904_Corrected_totals_sdabv_sdbel.txt",
+write.table(df, file = "P_striiformis_PST-78_depth_totals.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
 names.2 <- "ITS="
 ITS.df<- data.frame(cbind(names.2, mean.ITS.corrected))
-write.table(ITS.df, file = "A_muscaria_1904_Corrected_totals_sdabv_sdbel.txt",
+write.table(ITS.df, file = "P_striiformis_PST-78_depth_totals.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
 names.3 <- "LSU="
 LSU.df<- data.frame(cbind(names.3, mean.LSU.corrected))
-write.table(LSU.df, file = "A_muscaria_1904_Corrected_totals_sdabv_sdbel.txt",
+write.table(LSU.df, file = "P_striiformis_PST-78_depth_totals.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
-
+#summary totals 
+names.4 <- "SCG depth average="
+SCG.df<- data.frame(cbind(names.4, ceiling(SCG_ave)))
+write.table(SCG.df, file = "P_striiformis_PST-78_depth_totals.txt",
+            append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
+names.5 <- "estimated rDNA CN="
+CN.df<- data.frame(cbind(names.5, CN_est))
+write.table(CN.df, file = "P_striiformis_PST-78_depth_totals.txt",
+            append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
