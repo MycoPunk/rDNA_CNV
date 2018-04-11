@@ -335,6 +335,8 @@ MC_ave<- (mean.LSU.corrected + mean.ITS.corrected) /2
 CN_est_ITS<- round(mean.ITS.corrected / SCG_ave)
 CN_est<- round(MC_ave / SCG_ave)
 
+#percent difference between ITS and LSU depth 
+per_diff<- round(abs(mean.LSU.corrected - mean.ITS.corrected) / ((mean.LSU.corrected + mean.ITS.corrected) / 2)*100, digits = 3)
 
 #generate output
 #individual totals
@@ -360,6 +362,10 @@ write.table(CN.df.ITS, file = "P_graminis_depth_totals.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
 names.6 <- "estimated rDNA CN (ITS / LSU)="
 CN.df<- data.frame(cbind(names.6, CN_est))
+write.table(CN.df, file = "P_graminis_depth_totals.txt",
+            append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
+names.7 <- "% diff ITS / LSU="
+CN.df<- data.frame(cbind(names.7, per_diff))
 write.table(CN.df, file = "P_graminis_depth_totals.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
 
