@@ -6,35 +6,35 @@ library(Biostrings)
 
 ##read in fasta files
 #single-copy
-ELF1_fasta<- readDNAStringSet("W_cocos_ELF1_IR.fasta")[[1]]
-G6PDH_fasta<- readDNAStringSet("W_cocos_G6PDH_IR.fasta")[[1]] 
-GAPDH_fasta<- readDNAStringSet("W_cocos_GAPDH_IR.fasta")[[1]] 
-GH63_fasta<- readDNAStringSet("W_cocos_GH63_IR.fasta")[[1]] 
-LYS2_fasta<- readDNAStringSet("W_cocos_LYS2_IR.fasta")[[1]] 
-MCM7_fasta<- readDNAStringSet("W_cocos_MCM7_IR.fasta")[[1]] 
-MLS_fasta<- readDNAStringSet("W_cocos_MLS_IR.fasta")[[1]] 
-RPB1_fasta<- readDNAStringSet("W_cocos_RPB1_IR.fasta")[[1]] 
-RPB2_fasta<- readDNAStringSet("W_cocos_RPB2_IR.fasta")[[1]] 
-TOP2_fasta<- readDNAStringSet("W_cocos_TOP2_IR.fasta")[[1]] 
+ELF1_fasta<- readDNAStringSet("P_graminis_ELF1_IR.fasta")[[1]]
+G6PDH_fasta<- readDNAStringSet("P_graminis_G6PDH_IR.fasta")[[1]] 
+GAPDH_fasta<- readDNAStringSet("P_graminis_GAPDH_IR.fasta")[[1]] 
+GH63_fasta<- readDNAStringSet("P_graminis_GH63_IR.fasta")[[1]] 
+LYS2_fasta<- readDNAStringSet("P_graminis_LYS2_IR.fasta")[[1]] 
+MCM7_fasta<- readDNAStringSet("P_graminis_MCM7_IR.fasta")[[1]] 
+MLS_fasta<- readDNAStringSet("P_graminis_MLS_IR.fasta")[[1]] 
+RPB1_fasta<- readDNAStringSet("P_graminis_RPB1_IR.fasta")[[1]] 
+RPB2_fasta<- readDNAStringSet("P_graminis_RPB2_IR.fasta")[[1]] 
+TOP2_fasta<- readDNAStringSet("P_graminis_TOP2_IR.fasta")[[1]] 
 #multi-copy
-ITS_fasta<- readDNAStringSet("W_cocos_ITS_IR.fasta")[[1]] 
-LSU_fasta<- readDNAStringSet("W_cocos_LSU_IR.fasta")[[1]] 
+ITS_fasta<- readDNAStringSet("P_graminis_ITS_IR.fasta")[[1]] 
+LSU_fasta<- readDNAStringSet("P_graminis_LSU_IR.fasta")[[1]] 
 
 ##read in depth files
 #single-copy
-ELF1_table<- read.table("W_cocos_ELF1_depth.txt")
-G6PDH_table<- read.table("W_cocos_G6PDH_depth.txt")
-GAPDH_table<- read.table("W_cocos_GAPDH_depth.txt")
-GH63_table<- read.table("W_cocos_GH63_depth.txt")
-LYS2_table<- read.table("W_cocos_LYS2_depth.txt")
-MCM7_table<- read.table("W_cocos_MCM7_depth.txt")
-MLS_table<- read.table("W_cocos_MLS_depth.txt")
-RPB1_table<- read.table("W_cocos_RPB1_depth.txt")
-RPB2_table<- read.table("W_cocos_RPB2_depth.txt")
-TOP2_table<- read.table("W_cocos_TOP2_depth.txt")
+ELF1_table<- read.table("P_graminis_ELF1_depth.txt")
+G6PDH_table<- read.table("P_graminis_G6PDH_depth.txt")
+GAPDH_table<- read.table("P_graminis_GAPDH_depth.txt")
+GH63_table<- read.table("P_graminis_GH63_depth.txt")
+LYS2_table<- read.table("P_graminis_LYS2_depth.txt")
+MCM7_table<- read.table("P_graminis_MCM7_depth.txt")
+MLS_table<- read.table("P_graminis_MLS_depth.txt")
+RPB1_table<- read.table("P_graminis_RPB1_depth.txt")
+RPB2_table<- read.table("P_graminis_RPB2_depth.txt")
+TOP2_table<- read.table("P_graminis_TOP2_depth.txt")
 #multi-copy
-ITS_table<- read.table("W_cocos_ITS_depth.txt")
-LSU_table<- read.table("W_cocos_LSU_depth.txt")
+ITS_table<- read.table("P_graminis_ITS_depth.txt")
+LSU_table<- read.table("P_graminis_LSU_depth.txt")
 
 
 ##attach bp ident. to table
@@ -332,29 +332,34 @@ SCG_ave<- mean(adjusted.means)
 MC_ave<- (mean.LSU.corrected + mean.ITS.corrected) /2
 
 #Estimated Copy Number of rDNA cassette 
-CN_est<- ceiling(MC_ave / SCG_ave)
+CN_est_ITS<- round(mean.ITS.corrected / SCG_ave)
+CN_est<- round(MC_ave / SCG_ave)
 
 
 #generate output
 #individual totals
 df<- data.frame(cbind(names, adjusted.means))
-write.table(df, file = "W_cocos_depth_totals.txt",
+write.table(df, file = "P_graminis_depth_totals.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
 names.2 <- "ITS="
 ITS.df<- data.frame(cbind(names.2, mean.ITS.corrected))
-write.table(ITS.df, file = "W_cocos_depth_totals.txt",
+write.table(ITS.df, file = "P_graminis_depth_totals.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
 names.3 <- "LSU="
 LSU.df<- data.frame(cbind(names.3, mean.LSU.corrected))
-write.table(LSU.df, file = "W_cocos_depth_totals.txt",
+write.table(LSU.df, file = "P_graminis_depth_totals.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
 #summary totals 
 names.4 <- "SCG depth average="
-SCG.df<- data.frame(cbind(names.4, ceiling(SCG_ave)))
-write.table(SCG.df, file = "W_cocos_depth_totals.txt",
+SCG.df<- data.frame(cbind(names.4, round(SCG_ave)))
+write.table(SCG.df, file = "P_graminis_depth_totals.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
-names.5 <- "estimated rDNA CN="
-CN.df<- data.frame(cbind(names.5, CN_est))
-write.table(CN.df, file = "W_cocos_depth_totals.txt",
+names.5 <- "estimated rDNA CN (ITS only)="
+CN.df.ITS<- data.frame(cbind(names.5, CN_est_ITS))
+write.table(CN.df.ITS, file = "P_graminis_depth_totals.txt",
+            append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
+names.6 <- "estimated rDNA CN (ITS / LSU)="
+CN.df<- data.frame(cbind(names.6, CN_est))
+write.table(CN.df, file = "P_graminis_depth_totals.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
 
