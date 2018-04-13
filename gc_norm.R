@@ -152,6 +152,9 @@ TOP2_table_chop<- TOP2_table.2[50:(nrow(TOP2_table.2) -50),]
 ITS_table_chop<- ITS_table.2[50:(nrow(ITS_table.2) -50),]
 LSU_table_chop<- LSU_table.2[50:(nrow(LSU_table.2) -50),]
 
+barplot(LSU_table_chop$long.depth)
+barplot(ITS_table_chop$long.depth)
+mean(LSU_table_chop$long.depth)
 
 ##are any of the "SC" genes likely to be "MC"? If they're more than 1 sd outside the median, don't include downstream.
 #get long means
@@ -200,11 +203,11 @@ abline(a= lower, b= 0)
 #combine all sc genes, #hash out genes above or below ab-line in graph
 all_SC_gene_tables<- rbind(ELF1_table_chop, 
                            G6PDH_table_chop,
-                           GAPDH_table_chop,
+                           #GAPDH_table_chop,
                            GH63_table_chop,
                            LYS2_table_chop,
-                           MCM7_table_chop,
-                           MLS_table_chop,
+                           #MCM7_table_chop,
+                           #MLS_table_chop,
                            RPB1_table_chop,
                            RPB2_table_chop,
                            TOP2_table_chop)
@@ -235,11 +238,11 @@ cor.depth <- function(depth.df){
 #hash out genes above or below ab-line in graph
 adj.ELF1<- mean(cor.depth(depth.df = ELF1_table_chop))
 adj.G6PDH<- mean(cor.depth(depth.df = G6PDH_table_chop))  
-adj.GAPDH<- mean(cor.depth(depth.df = GAPDH_table_chop))  
+#adj.GAPDH<- mean(cor.depth(depth.df = GAPDH_table_chop))  
 adj.GH63<- mean(cor.depth(depth.df = GH63_table_chop)) 
 adj.LYS2<- mean(cor.depth(depth.df = LYS2_table_chop))  
-adj.MCM7<- mean(cor.depth(depth.df = MCM7_table_chop))
-adj.MLS<- mean(cor.depth(depth.df = MLS_table_chop))
+#adj.MCM7<- mean(cor.depth(depth.df = MCM7_table_chop))
+#adj.MLS<- mean(cor.depth(depth.df = MLS_table_chop))
 adj.RPB1<- mean(cor.depth(depth.df = RPB1_table_chop))
 adj.RPB2<- mean(cor.depth(depth.df = RPB2_table_chop))
 adj.TOP2<- mean(cor.depth(depth.df = TOP2_table_chop))  
@@ -250,22 +253,22 @@ adj.TOP2<- mean(cor.depth(depth.df = TOP2_table_chop))
 #hash out genes above or below ab-line in graph
 adjusted.means<- c(adj.ELF1,
                    adj.G6PDH,
-                   adj.GAPDH,
+                   #adj.GAPDH,
                    adj.GH63,
                    adj.LYS2,
-                   adj.MCM7,
-                   adj.MLS,
+                   #adj.MCM7,
+                   #adj.MLS,
                    adj.RPB1,
                    adj.RPB2,
                    adj.TOP2)
 
 names<-          c("ELF1=",
                    "G6PDH=",
-                   "GAPDH=",
+                   #"GAPDH=",
                    "GH63=",
                    "LYS2=",
-                   "MCM7=",
-                   "MLS=",
+                   #"MCM7=",
+                   #"MLS=",
                    "RPB1=",
                    "RPB2=",
                    "TOP2=")
@@ -309,6 +312,13 @@ cor.depth.multi_LSU <- function(depth.df){
 corrected.LSU.dep<- cor.depth.multi_LSU(depth.df = LSU_table_chop)
 mean.LSU.corrected<- mean(corrected.LSU.dep)
 mean.LSU.corrected
+
+#check that you trust the data
+barplot(ITS_table_chop$long.depth, main = "ITS before correction")
+barplot(corrected.ITS.dep, main = "ITS after correction")
+
+barplot(LSU_table_chop$long.depth, main = "LSU before correction")
+barplot(corrected.LSU.dep, main = "LSU after correction")
 
 #Average depth
 SCG_ave<- mean(adjusted.means)
