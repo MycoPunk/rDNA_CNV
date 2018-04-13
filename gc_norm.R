@@ -119,7 +119,6 @@ TOP2_table.2<- na.omit(RPB2_table.1[!(RPB2_table.1$V3==0),])
 ITS_table.2<- na.omit(ITS_table.1[!(ITS_table.1$V3==0),])
 LSU_table.2<- na.omit(LSU_table.1[!(LSU_table.1$V3==0),])
 
-View(LSU_table.2)
 ##changes the names so that they match and can be merged 
 NEW.names <- c("sp.", "bp.pos", "long.depth","bp", "gc.bin")
 #single-copy
