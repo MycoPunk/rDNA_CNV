@@ -6,37 +6,36 @@ library(Biostrings)
 
 ##read in fasta files
 #single-copy
-ELF1_fasta<- readDNAStringSet("M_bicolor_ELF1_IR.fasta")[[1]]
-G6PDH_fasta<- readDNAStringSet("M_bicolor_G6PDH_IR.fasta")[[1]] 
-GAPDH_fasta<- readDNAStringSet("M_bicolor_GAPDH_IR.fasta")[[1]] 
-GH63_fasta<- readDNAStringSet("M_bicolor_GH63_IR.fasta")[[1]] 
-LYS2_fasta<- readDNAStringSet("M_bicolor_LYS2_IR.fasta")[[1]] 
-MCM7_fasta<- readDNAStringSet("M_bicolor_MCM7_IR.fasta")[[1]] 
-MLS_fasta<- readDNAStringSet("M_bicolor_MLS_IR.fasta")[[1]] 
-RPB1_fasta<- readDNAStringSet("M_bicolor_RPB1_IR.fasta")[[1]] 
-RPB2_fasta<- readDNAStringSet("M_bicolor_RPB2_IR.fasta")[[1]] 
-TOP2_fasta<- readDNAStringSet("M_bicolor_TOP2_IR.fasta")[[1]] 
+ELF1_fasta<- readDNAStringSet("R_microsporus_ATCC52813_ELF1_IR.fasta")[[1]]
+G6PDH_fasta<- readDNAStringSet("R_microsporus_ATCC52813_G6PDH_IR.fasta")[[1]] 
+GAPDH_fasta<- readDNAStringSet("R_microsporus_ATCC52813_GAPDH_IR.fasta")[[1]] 
+GH63_fasta<- readDNAStringSet("R_microsporus_ATCC52813_GH63_IR.fasta")[[1]] 
+LYS2_fasta<- readDNAStringSet("R_microsporus_ATCC52813_LYS2_IR.fasta")[[1]] 
+MCM7_fasta<- readDNAStringSet("R_microsporus_ATCC52813_MCM7_IR.fasta")[[1]] 
+MLS_fasta<- readDNAStringSet("R_microsporus_ATCC52813_MLS_IR.fasta")[[1]] 
+RPB1_fasta<- readDNAStringSet("R_microsporus_ATCC52813_RPB1_IR.fasta")[[1]] 
+RPB2_fasta<- readDNAStringSet("R_microsporus_ATCC52813_RPB2_IR.fasta")[[1]] 
+TOP2_fasta<- readDNAStringSet("R_microsporus_ATCC52813_TOP2_IR.fasta")[[1]] 
 #multi-copy
-ITS_fasta<- readDNAStringSet("M_bicolor_ITS_IR.fasta")[[1]] 
-LSU_fasta<- readDNAStringSet("M_bicolor_LSU_IR.fasta")[[1]] 
+ITS_fasta<- readDNAStringSet("R_microsporus_ATCC52813_ITS_IR.fasta")[[1]] 
+LSU_fasta<- readDNAStringSet("R_microsporus_ATCC52813_LSU_IR.fasta")[[1]] 
 
 ##read in depth files
 #single-copy
-ELF1_table<- read.table("M_bicolor_ELF1_depth_a.txt")
-G6PDH_table<- read.table("M_bicolor_G6PDH_depth_a.txt")
-GAPDH_table<- read.table("M_bicolor_GAPDH_depth_a.txt")
-GH63_table<- read.table("M_bicolor_GH63_depth_a.txt")
-LYS2_table<- read.table("M_bicolor_LYS2_depth_a.txt")
-MCM7_table<- read.table("M_bicolor_MCM7_depth_a.txt")
-MLS_table<- read.table("M_bicolor_MLS_depth_a.txt")
-RPB1_table<- read.table("M_bicolor_RPB1_depth_a.txt")
-RPB2_table<- read.table("M_bicolor_RPB2_depth_a.txt")
-TOP2_table<- read.table("M_bicolor_TOP2_depth_a.txt")
+ELF1_table<- read.table("R_microsporus_ATCC52813_ELF1_depth_b.txt")
+G6PDH_table<- read.table("R_microsporus_ATCC52813_G6PDH_depth_b.txt")
+GAPDH_table<- read.table("R_microsporus_ATCC52813_GAPDH_depth_b.txt")
+GH63_table<- read.table("R_microsporus_ATCC52813_GH63_depth_b.txt")
+LYS2_table<- read.table("R_microsporus_ATCC52813_LYS2_depth_b.txt")
+MCM7_table<- read.table("R_microsporus_ATCC52813_MCM7_depth_b.txt")
+MLS_table<- read.table("R_microsporus_ATCC52813_MLS_depth_b.txt")
+RPB1_table<- read.table("R_microsporus_ATCC52813_RPB1_depth_b.txt")
+RPB2_table<- read.table("R_microsporus_ATCC52813_RPB2_depth_b.txt")
+TOP2_table<- read.table("R_microsporus_ATCC52813_TOP2_depth_b.txt")
 #multi-copy
-ITS_table<- read.table("M_bicolor_ITS_depth_a.txt")
-LSU_table<- read.table("M_bicolor_LSU_depth_a.txt")
+ITS_table<- read.table("R_microsporus_ATCC52813_ITS_depth_b.txt")
+LSU_table<- read.table("R_microsporus_ATCC52813_LSU_depth_b.txt")
 
-dim(LSU_table)
 
 ##attach bp ident. to table
 #single-copy
@@ -152,10 +151,6 @@ TOP2_table_chop<- TOP2_table.2[50:(nrow(TOP2_table.2) -50),]
 ITS_table_chop<- ITS_table.2[50:(nrow(ITS_table.2) -50),]
 LSU_table_chop<- LSU_table.2[50:(nrow(LSU_table.2) -50),]
 
-barplot(LSU_table_chop$long.depth)
-barplot(ITS_table_chop$long.depth)
-mean(LSU_table_chop$long.depth)
-
 ##are any of the "SC" genes likely to be "MC"? If they're more than 1 sd outside the median, don't include downstream.
 #get long means
 long.means.ELF1<- mean(ELF1_table_chop$long.depth)
@@ -195,19 +190,19 @@ lower<- medianSCG - sdSCG
 only.genes.in.range<- long.means < upper & long.means > lower
 only.genes.in.range
 
-barplot(long.means, las = 2, ylim =c(0,400))
+barplot(long.means, las = 2, ylim =c(0,700))
 abline(a= upper, b= 0)
 abline(a= lower, b= 0)
 
 
 #combine all sc genes, #hash out genes above or below ab-line in graph
-all_SC_gene_tables<- rbind(ELF1_table_chop, 
+all_SC_gene_tables<- rbind(#ELF1_table_chop, 
                            G6PDH_table_chop,
-                           #GAPDH_table_chop,
+                           GAPDH_table_chop,
                            GH63_table_chop,
-                           LYS2_table_chop,
-                           #MCM7_table_chop,
-                           #MLS_table_chop,
+                           #LYS2_table_chop,
+                           MCM7_table_chop,
+                           MLS_table_chop,
                            RPB1_table_chop,
                            RPB2_table_chop,
                            TOP2_table_chop)
@@ -236,13 +231,13 @@ cor.depth <- function(depth.df){
 
 #run function on each single copy region over the relevent bp's (100 chopped from either side), and get mean
 #hash out genes above or below ab-line in graph
-adj.ELF1<- mean(cor.depth(depth.df = ELF1_table_chop))
+#adj.ELF1<- mean(cor.depth(depth.df = ELF1_table_chop))
 adj.G6PDH<- mean(cor.depth(depth.df = G6PDH_table_chop))  
-#adj.GAPDH<- mean(cor.depth(depth.df = GAPDH_table_chop))  
+adj.GAPDH<- mean(cor.depth(depth.df = GAPDH_table_chop))  
 adj.GH63<- mean(cor.depth(depth.df = GH63_table_chop)) 
-adj.LYS2<- mean(cor.depth(depth.df = LYS2_table_chop))  
-#adj.MCM7<- mean(cor.depth(depth.df = MCM7_table_chop))
-#adj.MLS<- mean(cor.depth(depth.df = MLS_table_chop))
+#adj.LYS2<- mean(cor.depth(depth.df = LYS2_table_chop))  
+adj.MCM7<- mean(cor.depth(depth.df = MCM7_table_chop))
+adj.MLS<- mean(cor.depth(depth.df = MLS_table_chop))
 adj.RPB1<- mean(cor.depth(depth.df = RPB1_table_chop))
 adj.RPB2<- mean(cor.depth(depth.df = RPB2_table_chop))
 adj.TOP2<- mean(cor.depth(depth.df = TOP2_table_chop))  
@@ -251,24 +246,24 @@ adj.TOP2<- mean(cor.depth(depth.df = TOP2_table_chop))
 
 #make a list of adjusted means 
 #hash out genes above or below ab-line in graph
-adjusted.means<- c(adj.ELF1,
+adjusted.means<- c(#adj.ELF1,
                    adj.G6PDH,
-                   #adj.GAPDH,
+                   adj.GAPDH,
                    adj.GH63,
-                   adj.LYS2,
-                   #adj.MCM7,
-                   #adj.MLS,
+                   #adj.LYS2,
+                   adj.MCM7,
+                   adj.MLS,
                    adj.RPB1,
                    adj.RPB2,
                    adj.TOP2)
 
-names<-          c("ELF1=",
+names<-          c(#"ELF1=",
                    "G6PDH=",
-                   #"GAPDH=",
+                   "GAPDH=",
                    "GH63=",
-                   "LYS2=",
-                   #"MCM7=",
-                   #"MLS=",
+                   #"LYS2=",
+                   "MCM7=",
+                   "MLS=",
                    "RPB1=",
                    "RPB2=",
                    "TOP2=")
@@ -334,31 +329,31 @@ per_diff<- round(abs(mean.LSU.corrected - mean.ITS.corrected) / ((mean.LSU.corre
 #generate output
 #individual totals
 df<- data.frame(cbind(names, adjusted.means))
-write.table(df, file = "M_bicolor_depth_totals_a.txt",
+write.table(df, file = "R_microsporus_ATCC52813_depth_totals_b.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
 names.2 <- "ITS="
 ITS.df<- data.frame(cbind(names.2, mean.ITS.corrected))
-write.table(ITS.df, file = "M_bicolor_depth_totals_a.txt",
+write.table(ITS.df, file = "R_microsporus_ATCC52813_depth_totals_b.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
 names.3 <- "LSU="
 LSU.df<- data.frame(cbind(names.3, mean.LSU.corrected))
-write.table(LSU.df, file = "M_bicolor_depth_totals_a.txt",
+write.table(LSU.df, file = "R_microsporus_ATCC52813_depth_totals_b.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
 #summary totals 
 names.4 <- "SCG depth average="
 SCG.df<- data.frame(cbind(names.4, round(SCG_ave)))
-write.table(SCG.df, file = "M_bicolor_depth_totals_a.txt",
+write.table(SCG.df, file = "R_microsporus_ATCC52813_depth_totals_b.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
 names.5 <- "estimated rDNA CN (ITS only)="
 CN.df.ITS<- data.frame(cbind(names.5, CN_est_ITS))
-write.table(CN.df.ITS, file = "M_bicolor_depth_totals_a.txt",
+write.table(CN.df.ITS, file = "R_microsporus_ATCC52813_depth_totals_b.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
 names.6 <- "estimated rDNA CN (ITS / LSU)="
 CN.df<- data.frame(cbind(names.6, CN_est))
-write.table(CN.df, file = "M_bicolor_depth_totals_a.txt",
+write.table(CN.df, file = "R_microsporus_ATCC52813_depth_totals_b.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
 names.7 <- "% diff ITS / LSU="
 CN.df<- data.frame(cbind(names.7, per_diff))
-write.table(CN.df, file = "M_bicolor_depth_totals_a.txt",
+write.table(CN.df, file = "R_microsporus_ATCC52813_depth_totals_b.txt",
             append = TRUE, sep = "\t", row.names=FALSE, col.names=FALSE, quote = FALSE)
 
