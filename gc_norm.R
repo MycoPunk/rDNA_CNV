@@ -113,7 +113,7 @@ MCM7_table.2<- na.omit(MCM7_table.1[!(MCM7_table.1$V3==0),])
 MLS_table.2<- na.omit(MLS_table.1[!(MLS_table.1$V3==0),])
 RPB1_table.2<- na.omit(RPB1_table.1[!(RPB1_table.1$V3==0),])
 RPB2_table.2<- na.omit(RPB2_table.1[!(RPB2_table.1$V3==0),])
-TOP2_table.2<- na.omit(RPB2_table.1[!(RPB2_table.1$V3==0),])
+TOP2_table.2<- na.omit(TOP2_table.1[!(TOP2_table.1$V3==0),])
 #multi copy
 ITS_table.2<- na.omit(ITS_table.1[!(ITS_table.1$V3==0),])
 LSU_table.2<- na.omit(LSU_table.1[!(LSU_table.1$V3==0),])
