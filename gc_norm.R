@@ -151,6 +151,23 @@ TOP2_table_chop<- TOP2_table.2[50:(nrow(TOP2_table.2) -50),]
 ITS_table_chop<- ITS_table.2[50:(nrow(ITS_table.2) -50),]
 LSU_table_chop<- LSU_table.2[50:(nrow(LSU_table.2) -50),]
 
+#check to see how good the data looks
+#SCG's
+barplot(ELF1_table_chop$long.depth)
+barplot(G6PDH_table_chop$long.depth)
+barplot(GAPDH_table_chop$long.depth)
+barplot(GH63_table_chop$long.depth)
+barplot(LYS2_table_chop$long.depth)
+barplot(MCM7_table_chop$long.depth)
+barplot(MLS_table_chop$long.depth)
+barplot(RPB1_table_chop$long.depth)
+barplot(RPB2_table_chop$long.depth)
+barplot(TOP2_table_chop$long.depth)
+
+#MCG's
+barplot(LSU_table_chop$long.depth)
+barplot(ITS_table_chop$long.depth)
+
 ##are any of the "SC" genes likely to be "MC"? If they're more than 1 sd outside the median, don't include downstream.
 #get long means
 long.means.ELF1<- mean(ELF1_table_chop$long.depth)
