@@ -1,3 +1,5 @@
+
+
 #set directory
 setwd("~/Desktop/Project_ITS_CNV/genes and depth files/Rots_and_saps/")
 
@@ -102,7 +104,7 @@ TOP2_table.1<- TOP2_table[TOP2_table$TOP2_fasta %in% BP_list, ]
 ITS_table.1<- ITS_table[ITS_table$ITS_fasta %in% BP_list, ]
 LSU_table.1<- LSU_table[LSU_table$LSU_fasta %in% BP_list, ]
 
-#clean it up #1
+#clean it up #2
 #delete row if there are depth values of zero, or NA's
 ELF1_table.2<- na.omit(ELF1_table.1[!(ELF1_table.1$V3==0),])
 G6PDH_table.2<- na.omit(G6PDH_table.1[!(G6PDH_table.1$V3==0),])
@@ -118,7 +120,7 @@ TOP2_table.2<- na.omit(TOP2_table.1[!(TOP2_table.1$V3==0),])
 ITS_table.2<- na.omit(ITS_table.1[!(ITS_table.1$V3==0),])
 LSU_table.2<- na.omit(LSU_table.1[!(LSU_table.1$V3==0),])
 
-##changes the names so that they match and can be merged 
+##change the names so that they match and can be merged 
 NEW.names <- c("sp.", "bp.pos", "long.depth","bp", "gc.bin")
 #single-copy
 colnames(ELF1_table.2) <- NEW.names
@@ -151,9 +153,8 @@ TOP2_table_chop<- TOP2_table.2[50:(nrow(TOP2_table.2) -50),]
 ITS_table_chop<- ITS_table.2[50:(nrow(ITS_table.2) -50),]
 LSU_table_chop<- LSU_table.2[50:(nrow(LSU_table.2) -50),]
 
-#check to see how good the data looks
+#STOP HERE: check to see how good the data looks
 #SCG's
-help(barplot)
 barplot(ELF1_table_chop$long.depth, main = "ELF1, pre-normalization")
 barplot(G6PDH_table_chop$long.depth, main = "G6PDH, pre-normalization")
 barplot(GAPDH_table_chop$long.depth, main = "GAPDH, pre-normalization")
@@ -164,7 +165,6 @@ barplot(MLS_table_chop$long.depth, main = "MLS, pre-normalization")
 barplot(RPB1_table_chop$long.depth, main = "RPB1, pre-normalization")
 barplot(RPB2_table_chop$long.depth, main = "RPB2, pre-normalization")
 barplot(TOP2_table_chop$long.depth, main = "TOP2, pre-normalization")
-
 #MCG's
 barplot(LSU_table_chop$long.depth, main = "LSU, pre-normalization")
 barplot(ITS_table_chop$long.depth, main = "ITS, pre-normalization")
@@ -182,7 +182,6 @@ long.means.MLS<- mean(MLS_table_chop$long.depth)
 long.means.RPB1<- mean(RPB1_table_chop$long.depth)
 long.means.RPB2<- mean(RPB2_table_chop$long.depth)
 long.means.TOP2<- mean(TOP2_table_chop$long.depth)
-
 
 #make a list of means
 long.means<- c(long.means.ELF1,
