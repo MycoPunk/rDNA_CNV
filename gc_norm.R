@@ -1,5 +1,10 @@
 
 
+#######
+#this is an interactive script that takes read depth files, and the original reference fasta files use to create the depth alignments. 
+#There are several places in the scrip that where the user must stop and evaluate the quality of data using graphical or numeric output. 
+#######
+
 #set directory
 setwd("~/Desktop/Project_ITS_CNV/genes and depth files/Rots_and_saps/")
 
