@@ -1,6 +1,3 @@
-
-#Figure 1b
-
 setwd("~/Desktop/Project_ITS_CNV")
 library(data.table)
 library(plotrix)
@@ -122,8 +119,9 @@ gap.boxplot<-function (x,...,gap=list(top=c(NA,NA),bottom=c(NA,NA)),
 }
 
 
+#hash second line work with full data, unhash to work with data minus the outlier 
 rDNA_by_taxa<- read.csv("rDNA_by_taxa.csv", sep = ",", header = TRUE)
-#rDNA_by_taxa <- rDNA_by_taxa_full[ rDNA_by_taxa_full$Genus!="Basidiobolus",]
+rDNA_by_taxa <- rDNA_by_taxa[ rDNA_by_taxa$Genus!="Basidiobolus",]
 
 
 #smaller df of only species with multiple representatives 
@@ -207,23 +205,9 @@ Order_difference.mean<- mean(abs(Order_range[,1] - Order_range[,2]))
 Class_difference.mean<- mean(abs(Class_range[,1] - Class_range[,2]))
 Phylum_difference.mean<- mean(abs(Phylum_range[,1] - Phylum_range[,2]))
 
-#figure 1.B, without a brake 
-boxplot(SE_range[,3], 
-        Genus_range[,3], 
-        Family_range[,3], 
-        Order_range[,3], 
-        Class_range[,3], 
-        Phylum_range[,3], 
-        range = 3, 
-        outline=TRUE, 
-        names = c("SE", "G", "F", "O", "C", "P"))
-axis.break(2, from, breakcol="white", style="gap")
-axis.break(2, from*(1+0.02), breakcol="black", style="slash")
-axis.break(4, from*(1+0.02), breakcol="black", style="slash")
 
 
-# but we need to brake the axis, because that outlier makes it dificult to see the real data.
-#this moves all the outliers into the wrong group??
+# Fig 1.b
 from <- 300
 to <- 1200
 gap.boxplot(SE_range[,3], 
@@ -241,23 +225,202 @@ axis.break(2, from*(1+0.02), breakcol="black", style="slash")
 axis.break(4, from*(1+0.02), breakcol="black", style="slash")
 axis(2,at=c(1,50,150,200,350,400, 450),labels=c("1","50","150","200","1200","1250", "1300"))
 
-#if we change range = 3 to range 0, the wiskers extend to the correct group outliers
-#.. why does this brake when we need both wiskers and outliers to be explicit.
+
+#make new df to run stats for fig 1.b
+SE_rows<- data.frame(SE_range[,3])
+SE_rows$group<-"SE"
+colnames(SE_rows)[1] <- "range"
+
+Genus_rows<- data.frame(Genus_range[,3])
+Genus_rows$group<-"Genus"
+colnames(Genus_rows)[1] <- "range"
+
+Family_rows<- data.frame(Family_range[,3])
+Family_rows$group<-"Family"
+colnames(Family_rows)[1] <- "range"
+
+Order_rows<- data.frame(Order_range[,3])
+Order_rows$group<-"Order"
+colnames(Order_rows)[1] <- "range"
+
+Class_rows<- data.frame(Class_range[,3])
+Class_rows$group<-"Class"
+colnames(Class_rows)[1] <- "range"
+
+Phylum_rows<- data.frame(Phylum_range[,3])
+Phylum_rows$group<-"Phylum"
+colnames(Phylum_rows)[1] <- "range"
+
+group_df<- rbind(SE_rows, 
+                 Genus_rows, 
+                 Family_rows,
+                 Order_rows, 
+                 Class_rows,
+                 Phylum_rows)
+
+
+
+#check for variance homogeneity 
+#install.packages("outliers")
+require("outliers")
+cochran.test(range~group, group_df, inlying=FALSE) #is this the correct order?
+kruskal.test(group ~ range, group_df)
+
+
+#based on test, need to transform the data to meet variance assumptions - trying log(x+1) to account for zeros in data
+#cochran.test(LogRemoved~Group, data, inlying=FALSE)
+#assumptions met with transformation (i.e. p > 0.05)
+
+#figure 1.B, without a brake #for no outlier 
+boxplot(SE_range[,3], 
+        Genus_range[,3], 
+        Family_range[,3], 
+        Order_range[,3], 
+        Class_range[,3], 
+        Phylum_range[,3], 
+        range = 3, 
+        outline=TRUE, 
+        names = c("SE", "G", "F", "O", "C", "P"))
+
+#figure 1.C (lifestyle) #for no outlier 
+boxplot(rDNA_by_taxa$CN ~rDNA_by_taxa$group, main = "no_outlier") 
+
+#figure 1.C, with outlier 
 from <- 300
 to <- 1200
-plotrix::gap.boxplot(SE_range[,3], 
-            Genus_range[,3], 
-            Family_range[,3], 
-            Order_range[,3], 
-            Class_range[,3], 
-            Phylum_range[,3], 
+gap.boxplot(rDNA_by_taxa$CN ~rDNA_by_taxa$group, 
             gap=list(top=c(from,to),bottom=c(NA,NA)),
             range = 3, 
-            outline = TRUE,
-            names = c("SE", "G", "F", "O", "C", "P"))
+            outline = TRUE, 
+            main = "with_outlier")
 axis.break(2, from, breakcol="white", style="gap")
+axis(2,at=c(1,50,150,200,350,400, 450),labels=c("1","50","150","200","1200","1250", "1300"))
 axis.break(2, from*(1+0.02), breakcol="black", style="slash")
 axis.break(4, from*(1+0.02), breakcol="black", style="slash")
+
+cochran.test(CN~group, rDNA_by_taxa, inlying=FALSE) #is this the correct order?
+
+
+
+#look by lifestyle: Fig2
+
+#figure 2.a, Trophic mode, without a brake for no outlier 
+b <- boxplot(CN ~TrophicMode, data=rDNA_by_taxa, plot=0)
+par(mar=c(7,5,1,1))
+par(cex.axis=0.7)
+boxplot(CN ~TrophicMode, data=rDNA_by_taxa, 
+        range = 3, 
+        outline=TRUE, 
+        names=paste(b$names, "(n=", b$n, ")"), 
+        las = 2, 
+        main = "CN by trophic mode - no outlier")
+
+
+#Fig. 2.a Trophic mode, with outlier 
+b <- boxplot(CN ~TrophicMode, data=rDNA_by_taxa, plot=0)
+from <- 300
+to <- 1200
+gap.boxplot(rDNA_by_taxa$CN ~rDNA_by_taxa$TrophicMode, 
+            gap=list(top=c(from,to),bottom=c(NA,NA)),
+            range = 3, 
+            outline = TRUE, 
+            main = "CN by trophic mode- with_outlier", 
+            names=paste(b$names, "(n=", b$n, ")"))
+axis.break(2, from, breakcol="white", style="gap")
 axis(2,at=c(1,50,150,200,350,400, 450),labels=c("1","50","150","200","1200","1250", "1300"))
+axis.break(2, from*(1+0.02), breakcol="black", style="slash")
+axis.break(4, from*(1+0.02), breakcol="black", style="slash")
+#names wont work but becuase of coding glitch, but it shuld snow up as: 
+b$n
+
+cochran.test(CN~TrophicMode, rDNA_by_taxa, inlying=FALSE)
 
 
+#look by lifestyle: Fig2
+#Fig. 2.b Guild for Ascos, with outlier 
+
+
+#look by lifestyle: Fig2
+#Fig. 2.b Guild for Ascos, without outlier 
+#make subset dataframe of just ascos 
+#see how many catagories have 5 or more 
+Asco_df<- rDNA_by_taxa[rDNA_by_taxa$Phylum == "Ascomycota",]
+b <- boxplot(CN ~ Lifestyle, data=Asco_df, plot=0)
+par(mar=c(7,5,1,1))
+par(cex.axis=0.7)
+boxplot(CN ~Lifestyle, data=Asco_df, 
+        range = 3, 
+        outline=TRUE, 
+        names=paste(b$names, "(n=", b$n, ")"), 
+        las = 2, 
+        main = "CN by trophic mode - no outlier")
+
+#only Pathogen, SAP S/L/O and PAthogen / SAP S/L/O do 
+#make new DF
+#Asco_df_with_enough_reps<- Asco_df[Asco_df$Lifestyle == "SAP S/L/O" | Asco_df$Lifestyle == "Pathogen" | Asco_df$Lifestyle == "SAP S/L/O / pathogen",]
+Asco_df_with_enough_reps<- droplevels(subset(Asco_df[(Asco_df$Lifestyle == "SAP S/L/O") | (Asco_df$Lifestyle == "Pathogen") | (Asco_df$Lifestyle == "SAP S/L/O / pathogen"),]))
+
+c <- boxplot(Asco_df_with_enough_reps$CN ~ Asco_df_with_enough_reps$Lifestyle, data=Asco_df_with_enough_reps, plot=0)
+par(mar=c(7,5,1,1))
+par(cex.axis=0.7)
+boxplot(Asco_df_with_enough_reps$CN ~ Asco_df_with_enough_reps$Lifestyle, data=Asco_df_with_enough_reps, 
+        range = 3, 
+        outline=TRUE, 
+        names=paste(c$names, "(n=", c$n, ")"), 
+        las = 2, 
+        main = "Ascomycota - no outlier")
+
+cochran.test(CN ~ Lifestyle, data=Asco_df_with_enough_reps, inlying=FALSE)
+
+#Fig. 2.c Guild for Basids, without outlier 
+#see how many catagories have 5 or more BASIDS 
+Basid_df<- rDNA_by_taxa[rDNA_by_taxa$Phylum == "Basidiomycota",]
+b <- boxplot(CN ~ Lifestyle, data=Basid_df, plot=0)
+par(mar=c(7,5,1,1))
+par(cex.axis=0.7)
+boxplot(CN ~Lifestyle, data=Basid_df, 
+        range = 3, 
+        outline=TRUE, 
+        names=paste(b$names, "(n=", b$n, ")"), 
+        las = 2, 
+        main = "CN by trophic mode - no outlier")
+
+
+
+
+#only ECM, SAP BR and SAP WR 
+#make new DF
+#Asco_df_with_enough_reps<- Asco_df[Asco_df$Lifestyle == "SAP S/L/O" | Asco_df$Lifestyle == "Pathogen" | Asco_df$Lifestyle == "SAP S/L/O / pathogen",]
+Basid_df_with_enough_reps<- droplevels(subset(Basid_df[(Basid_df$Lifestyle == "ECM") | (Basid_df$Lifestyle == "SAP BR") | (Basid_df$Lifestyle == "SAP WR"),]))
+
+
+c <- boxplot(Basid_df_with_enough_reps$CN ~ Basid_df_with_enough_reps$Lifestyle, data=Basid_df_with_enough_reps, plot=0)
+par(mar=c(7,5,1,1))
+par(cex.axis=0.7)
+boxplot(Basid_df_with_enough_reps$CN ~ Basid_df_with_enough_reps$Lifestyle, data=Basid_df_with_enough_reps, 
+        range = 3, 
+        outline=TRUE, 
+        names=paste(c$names, "(n=", c$n, ")"), 
+        las = 2, 
+        main = "Basidiomycota - no outlier")
+
+cochran.test(CN ~ Lifestyle, data=Basid_df_with_enough_reps, inlying=FALSE)
+
+
+#run stats
+#2.a by Trophic mode 
+kruskal.test(CN ~TrophicMode, data=rDNA_by_taxa)
+summary(aov(CN ~TrophicMode, data=rDNA_by_taxa))
+
+#2.c by Trophic mode ASCOS
+summary(aov(CN ~ Lifestyle, data=Asco_df_with_enough_reps))
+
+#2.c by Trophic mode BASIDS
+summary(aov(CN ~ Lifestyle, data=Basid_df_with_enough_reps))
+
+
+#1c
+one_c<- aov(CN~group, rDNA_by_taxa)
+summary(aov(CN~group, rDNA_by_taxa))
+kruskal.test(CN~group, rDNA_by_taxa)
+TukeyHSD(one_c)
