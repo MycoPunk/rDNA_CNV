@@ -1,6 +1,3 @@
-
-#everything old is new again backup 
-
 #This script takes in PacBio .fastq consessus files and chops them into illumina-like 101bp reads
 #whcih can then be used in read depth analysis. This creates paired-end (-1, -2) reads with 2X coverage of each fragment. 
 
