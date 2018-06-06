@@ -1,0 +1,95 @@
+﻿Table S1. Single copy genes were downloaded from MycoCosm (https://genome.jgi.doe.gov/programs/fungi/index.jsf). The table depicts the Protein ID for each single copy gene as annotated by JGI. 'internal' indicates that the gene was obtaned from the consesous sequence using bcftools. ,,,,,,,,,,,,
+Species ,ID,Citation,RNA polymerase I (RPB1),RNA polymerase II (RPB2),Glyceraldehyde 3-phosphate dehydrogenase (GAPDH),Zn ribbon-containing protein (ELF1),Glycosyl hydrolase family 63 (GH63),DNA replication licensing factor (MCM7),Glucose-6-phosphate 1-dehydrogenase (G6PDH),Malate Synthase (MLS),alpha-aminoadipate reductase (LYS2),DNA topoisomerase type II (TOP2)
+Alternaria alternata,SRC1lrK2f,"(Zeiner et al., 2016)",1066612,946695,1011328,964621,940352,1019775,1021170,1056777,1016196,1094701
+Amanita muscaria,Koide v1.0,"(Kohler et al., 2015)",13007,1020890,179173,156998,185038,157073,156103,26063,79542,183236
+Armillaria gallica,21-2,"(Sipos et al., 2018)",981870,1006712,1013303,1044961,1010211,1165243,1005918,990430,986702,983985
+Armillaria solidipes,28-4,"(Sipos et al., 2018)",938555,948586,954748,1077764,946742,947471,956412,952602,955571,949489
+Aspergillus glaucus,None,"(Sipos et al., 2018)",56619,150446,30368,114690,68300,50192,52143,175943,30060,67534
+Aspergillus luchuensis,CBS 106.47,"(de Vries et al., 2017)",173651,37284,46401,64530,135920,32820,42257,47151,59929,44377
+Aspergillus sydowii,CBS 593.65 ,"(de Vries et al., 2017)",150494,50074,47875,159119,164169,177393,29277,157595,43844,179986
+Aspergillus versicolor,None,"(de Vries et al., 2017)",665103,47803,45548,46253,137482,71342,26843,136720,193909,869679
+Basidiobolus meristosporus,CBS 931.73,"(Mondo et al., 2017)",71973,404167,280280,258289,285849,316145,266399,322606,221915,270388
+Baudoinia compniacensis,UAMH 10762,"(Ohm et al., 2012)",34468,85149,148273,33135,156617,127305,450434,73999,263156,144266
+Boletus edulis,None,Unpublished (F. Martin),956614,975025,966849,703155,888937,696516,842658,939623,1058786,72858
+Calocera cornea,None,"(Nagy et al., 2016)",489593,495637,495279,431772,494177,485017,426594,479691,514577,521604
+Calocera viscosa,None,"(Nagy et al., 2016)",537148,545672,549301,185214,549931,602895,538623,561971,478451,561050
+Candida tanzawaensis,NRRL,"(Riley et al., 2016)",51620,315886,52161,4070,91262,4329,57445,54184,4827,54887
+Cenococcum geophilum,1.58 v2.0,"(Peter et al., 2016)",556407,668623,679752,76392,603555,542374,655114,681866,639075,601114
+Cochliobolus carbonum, 26-R-13,"(Condon et al., 2013)",1759,101489,32436,22458,5608,82618,1134,437,321,33223
+Cochliobolus lunatus,m118,"(Condon et al., 2013)",52335,65013,26476,20015,34052,42761,20004,151619,151434,55682
+Conidiobolus coronatus,NRRL28638,"(Chang et al., 2015)",3698,7900,16839,28713,12100,14671,10392,50907,165311,54188
+Conidiobolus thromboides,FSU 785,Unpublished (A. Gryganskyi),325726,310100,180577,367868,323208,315355,350899,323957,158608,368314
+Coniophora olivacea,MUCL 20566,"(Castanera et al., 2017)",946558,507074,876819,917915,819567,972010,855894,649272,998267,977545
+Coniophora puteana,None,"(Floudas et al., 2012)",122562,116067, 76391,134997,47986,134747,84810,81009,168209,114400
+Corynespora cassiicola,CCP,"(Lopez et al., 2018)",528316,569315,31376,564916,637177,574971,564897,499288,549232,578785
+Cronartium quercuum f. sp. fusiforme,G11,"(Pendleton et al., 2014)",58307,75937,658807,665981,652883,656289,69572,662067,88921,653697
+Cylindrobasidium torrendii,FP15055,"(Floudas et al., 2015)",386072,452881,424916,336477,396584,366397,435210,423406,494150,494416
+Daedalea quercina,None,"(Nagy et al., 2016)",722723,727474,723081,751564,747039,707170,192566,733364,725352,765992
+Daldinia eschscholzii,EC12,"(Wu et al., 2017)",318729,318358,65458,316434,314817,385894,319152,61202,315485,317783
+Dichomitus squalens,CBS464.89,Unpublished (M. Mäkelä and K. Hildén),917268,915907,934352,836841,912823,9093,925713,176872,1037382,960386
+Dichomitus squalens,CBS463.89,Unpublished (M. Mäkelä and K. Hildén),864605,946481,954024,907222,945914,908131,851143,871012,952735,1004388
+Dichomitus squalens,LYAD-421_SS1,"(Floudas et al., 2012)",93477,164685,183206,50031,160864,98073,161688,79688,101950,156586
+Dichomitus squalens,OM18370.1,Unpublished (M. Mäkelä and K. Hildén),757919,682901,737623,680621,796865,707735,654042,711669,688909,717849
+Eurotium rubrum,None,"(Kis-Papo et al., 2014)",386417,412820,417127,407512,401154,477929,408536,452368,415632,410188
+Exidia glandulosa,None,"(Nagy et al., 2016)",837467,726453,643980,720576,714230,765545,635518,664408,845331,736715
+Fistulina hepatica,NA,"(Floudas et al., 2015)",41736,64293,70678,53132,71378,71135,65271,59756,76899,67093
+Gloeophyllum trabeum,None,"(Floudas et al., 2012)",109470,135096,60667,28595,35943,103868,55086,137388,78681,102844
+Gonapodya prolifera,None,"(Chang et al., 2015)",109491,95064,103483,67442,57961,133246,52147,102848,95124,100375
+Gyrodon lividus,None,Unpublished (F. Martin),495596,700006,784518,726560,747111,774298,796796,453679,749679,771976
+Hanseniaspora valbyensis,NRRL Y-1626,"(Riley et al., 2016)",3795,56526,59017,52578,54023,51767,3131,53564,53200,2629
+Hebeloma cylindrosporum ,h7 v2.0,"(Kohler et al., 2015)",447445,15879,10678,438259,438614,438531,441239,442277,444755,22556
+Hydnum rufescens ,UP504,Unpublished (F. Martin),1313031,1376593,1343158,1334695,1376519,1323575,1383757,1394948,1346076,1344783
+Hypholoma sublateritium,None,"(Kohler et al., 2015)",126648,41504,45836,131761,142405,63381,32409,205446,206857,127681
+Hyphopichia burtonii,NRRL Y-1933,"(Riley et al., 2016)",152821,105789,5575,114158,108407,135427,115301,8425,159422,151075
+Laccaria amethystina ,LaAM-08-1 v2.0,"(Nagy et al., 2016)",680910,1605690,13474,84200,674156,678357,673973,677427,5827,426736
+Laetiporus sulphureus,NA,"(Nagy et al., 2016)",638668,762810,716310,694908,642039,646758,719053,721150,721588,568388
+Martensiomyces pterosporus ,CBS 209.56,Unpublished (A. Gryganskyi),290486,31337,299335,238671,318094,295671,327583,312904,289055,332671
+Meliniomyces bicolor,E,"(Martino et al., 2018)",642956,518145,578237,625453,577656,657237,237099,618097,551778,648510
+Meliniomyces variabilis,F,"(Martino et al., 2018)",439901,420178,510273,302599,509720,460236,548956,516107,452459,540566
+Microdochium bolleyi,J235TASD1,"(David et al., 2016)",29207,233432,2256,51751,188144,131653,163216,187861,188083,27773
+Mortierella elongata,AG-77,"(Uehling et al., 2017)",21632,130072,136372,17447,143211,149493,1165182,33531,152145,153555
+Oidiodendron maius,Zn,"(Kohler et al., 2015)",163981,38254,127461,53183,132564,102269,177161,196091,160107,188201
+Paraconiothyrium sporulosum,AP3s5-JAC2a,"(Zeiner et al., 2016)",1206903,1198950,1082743,1164226,1113413,1129019,1164165,1117132,1143319,1201142
+Paxillus adelphus,Ve08.2h10 v2.0,"(Kohler et al., 2015)",1903909,427517,825141,825571,833958,832183,825242,823829,834458,825496
+Paxillus involutus ,ATCC 200175 v1.0,"(Kohler et al., 2015)",164838,64693,154118,175877,88925,85941,166203,128854,163299,88607
+Phialocephala scopiformis,5WS22E1,"(Walker et al., 2016)",613368,683984,701533,682830,625006,636894,728644,635807,784917,782231
+Phycomyces blakesleeanus,NRRL1555,"(Corrochano et al., 2016)",123028,57416,76956,182972,132587,185829,121050,36384,178504,35398
+Piloderma croceum ,F 1598 v1.0,"(Kohler et al., 2015)",821148,813588,99460,815572,72757,823255,811308,819533,816909,780689
+Pisolithus microcarpus ,441 v1.0,"(Kohler et al., 2015)",652510,671431,642788,670187,628253,670013,670811,152166,14094,109084
+Postia placenta,MAD-698-R-SB12,"(Gaskell et al., 2017)",1148493,1185402,1041472,1172754,1044393,1044832,1147327,1072860,1180438,1072653
+Puccinia striiformis f. sp. tritici, PST-78,"(Cuomo et al., 2017)",4184,7348,4332,8684,1837,5257,17532,1103,2633,8834
+Ramicandelaber brevisporus,CBS 109374,Unpublished (A. Gryganskyi),118057,163657,157249,109701,151975,177795,164458,148954,162429,118532
+Rhizoclosmatium globosum,JEL800,"(Mondo et al., 2017)",856337,720236,849036,648143,714338,677963,718262,758265,665173,722451
+Rhizopogon vinicolor,AM-OR11-026 v1.0,"(Mujic et al., 2017)",679822,697265,771870,861279,775292,869504,708413,729571,718841,862953
+Rhizopus microsporus ,ATCC11559,"(Lastovetsky et al., 2016)",291509,292720,45760,190552,271371,192353,244398,254733,293630,268497
+Rhizopus microsporus var. microsporus,ATCC52813,"(Lastovetsky et al., 2016)",236982,294084,198001,182277,196303,212554,286086,73366,290813,198841
+Rhizopus microsporus var. microsporus ,ATCC52814,"(Lastovetsky et al., 2016)",142231,336421,77820,217350,303603,59622,251522,40676,78618,67543
+Rhizoscyphus ericae,UAMH 7357,"(Martino et al., 2018)",585870,46860,707440,582910,614920,646987,577765,743126,747871,600142
+Scleroderma citrinum,Foug A v1.0,"(Kohler et al., 2015)",33604,1207496,16072,1212453,113630,1221439,20930,15062,1223710,6663
+Setosphaeria turcica,Et28A ,"(Ohm et al., 2012)",179630,113050,183842,1409138,134328,166401,167861,166954,166785,40880
+Stereum hirsutum,FP-91666 SS1,"(Floudas et al., 2012)",167408,89162,105784,166314,51990,75061,146435,149177,5460,70358
+Suillus americanus,EM31,Unpublished (R. Vilgalys),994846,908839,917218,957868,1093880,1091921,1058840,848128,870931,1093843
+Suillus brevipes,2,"(Branco et al., 2015)",836634,714349,1799528,829310,857770,777745,718701,606697,801895,1909520
+Suillus brevipes,12,"(Branco et al., 2015)",internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal 
+Suillus brevipes,22,"(Branco et al., 2015)",internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal 
+Suillus brevipes,117,"(Branco et al., 2015)",internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal 
+Suillus brevipes,119,"(Branco et al., 2015)",internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal 
+Suillus brevipes,120,"(Branco et al., 2015)",internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal 
+Suillus brevipes,121,"(Branco et al., 2015)",internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal 
+Suillus brevipes,122,"(Branco et al., 2015)",internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal 
+Suillus brevipes,123,"(Branco et al., 2015)",internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal 
+Suillus brevipes,124,"(Branco et al., 2015)",internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal 
+Suillus brevipes,125,"(Branco et al., 2015)",internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal 
+Suillus brevipes,126,"(Branco et al., 2015)",internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal ,internal 
+Suillus decipiens,EM49,Unpublished (R. Vilgalys),1144710,1132504,1119849,1065616,1087344,1234939,1088387,1084360,1033878,1202163
+Suillus granulatus,EM37,Unpublished (R. Vilgalys),778104,869571,982530,872059,955236,924095,956281,888796,969597,960895
+Suillus hirtellus,EM16,Unpublished (R. Vilgalys),733583,868957,965259,998467,946853,914780,909962,888733,964625,960640
+Suillus luteus,UH-Slu-Lm8-n1 ,"(Kohler et al., 2015)",803352,1736150,801637,799761,1793677,1817690,797680,92176,812293,811432
+Suillus pictus,EM44,Unpublished (R. Vilgalys),1609855,1271379,1378384,1468966,1493038,1471317,1393723,1388827,1390415,1450132
+Suillus subaureus,MN1 v1.0,Unpublished (L. Lofgren),1357477,370285,954823,1443387,1308005,1256340,1266554,1259122,485578,1313833
+Trichoderma asperellum,CBS 433.97,"(Druzhinina et al., 2018)",62075,77086,56409,152116,26016,157112,23027,132204,131628,131000
+Trichoderma harzianum,CBS 226.95,"(Druzhinina et al., 2018)",122046,9591,506581,19155,79256,490345,2183,507821,107600,489743
+Trichoderma longibrachiatum,ATCC 18648,"(Druzhinina et al., 2018)",1362941,58810,1349748,1341942,1329096,1427374,1396078,1382802,1471953,1460448
+Wilcoxina mikolae ,CBS 423.85 v1.0,Unpublished (S. Branco),592581,592819,598038,621554,654374,657985,617077,551052,554422,576171
+Wolfiporia cocos ,MD-104 SS10,"(Floudas et al., 2012)",136986,135432,25731,54377,65934,96073,24574,108206,139291,134889
+Xylona heveae,TC161,"(Gazis et al., 2016)",211524,237240,269902,238597,222461,217037,251874,213081,223787,258645
