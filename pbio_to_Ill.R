@@ -1,6 +1,6 @@
 
 #This script takes in PacBio .fastq consessus files and chops them into illumina-like 101bp reads
-#whcih can then be used in read depth analysis. This creates paired-end (-1, -2) reads with XX coverage of each fragment. 
+#which can then be used in read depth analysis. This creates paired-end (-1, -2) reads with XX coverage of each fragment. 
 
 '''
 #NOTE: before running this script, you need to remove any pbio reads < 500 bp. 
