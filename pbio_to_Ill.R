@@ -38,13 +38,15 @@ P_bio_seqs <- data.table::fread("pbio-1487.13649.fastq", header = FALSE, quote="
 #transpose into dataframe
 Seq <- P_bio_seqs[seq(2, nrow(P_bio_seqs), 4), ]
 q_score <- P_bio_seqs[seq(4, nrow(P_bio_seqs), 4), ]
-PBIO_df<- data.table(Seq, q_score)
+PBIO_df<- data.frame(Seq, q_score)
+
+#clean up
+rm(P_bio_seqs)
 
 #get number of draws for ea. fragment
 frag_length<- 500 
 PBIO_df<- data.table(PBIO_df, (round((nchar(PBIO_df[,1]) / frag_length) * .5, digits = 0)))
 colnames(PBIO_df) <- c("BP", "q-score", "num_draws")
-
 
 #function to make unique id line
 Header_ID = function(){
@@ -59,7 +61,6 @@ Fragment = function(string, n) {
   })   
   
 }
-
 
 #draw a different number 500 bp draws based on length of PacBio fragment  
 draws<- apply(PBIO_df, 1, function(x) as.data.table(lapply(x[1:2], Fragment, n = x[3])))
