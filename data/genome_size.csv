@@ -1,0 +1,92 @@
+Taxon ,genome size (Mbp),# gene models,SE,Genus,Family ,Order,Class,Phylum,Lifestyle,TrophicMode,CN,group
+Alternaria alternata,32.99,13469,alternata,Alternaria,Pleosporaceae,Pleosporales,Dothideomycetes,Ascomycota,SAP S/L/O / pathogen,Multi,45,Ascomycota
+Aspergillus glaucus,27.99,11277,glaucus,Aspergillus,Aspergillaceae,Eurotiales,Eurotiomycetes,Ascomycota,SAP S/L/O / pathogen,Multi,44,Ascomycota
+Aspergillus luchuensis,37.47,13530,luchuensis,Aspergillus,Aspergillaceae,Eurotiales,Eurotiomycetes,Ascomycota,SAP S/L/O,Saprotroph,95,Ascomycota
+Aspergillus sydowii,34.38,13620,sydowii,Aspergillus,Aspergillaceae,Eurotiales,Eurotiomycetes,Ascomycota,SAP S/L/O / pathogen,Multi,94,Ascomycota
+Aspergillus versicolor,33.13,13228,versicolor,Aspergillus,Aspergillaceae,Eurotiales,Eurotiomycetes,Ascomycota,SAP S/L/O / pathogen,Multi,68,Ascomycota
+Baudoinia compniacensis,21.88,10513,compniacensis,Baudoinia,Teratosphaeriaceae,Capnodiales,Dothideomycetes,Ascomycota,SAP S/L/O,Saprotroph,24,Ascomycota
+Candida tanzawaensis,13.14,5895,tanzawaensis,Candida,Saccharomycetaceae,Saccharomycetales,Saccharomycetes,Ascomycota,Pathogen,Pathotroph,71,Ascomycota
+Cenococcum geophilum,177.56,14748,geophilum,Cenococcum,Gloniaceae,Mytilinidiales,Dothideomycetes,Ascomycota,ECM,Symbiotroph,15,Ascomycota
+Cochliobolus carbonum,31.27,12857,carbonum,Cochliobolus,Pleosporaceae,Pleosporales,Dothideomycetes,Ascomycota,Pathogen,Pathotroph,67,Ascomycota
+Cochliobolus lunatus,31.17,12131,lunatus,Cochliobolus,Pleosporaceae,Pleosporales,Dothideomycetes,Ascomycota,Pathogen,Pathotroph,78,Ascomycota
+Corynespora cassiicola,44.85,17166,cassiicola,Corynespora,Corynesporascaceae,Pleosporales,Dothideomycetes,Ascomycota,Pathogen,Pathotroph,104,Ascomycota
+Daldinia eschscholzii,37.55,11173,eschscholzii,Daldinia,Hypoxylaceae,Xylariales,Sordariomycetes,Ascomycota,Endophyte,Symbiotroph,45,Ascomycota
+Eurotium rubrum,26.21,10076,rubrum,Eurotium,Aspergillaceae,Eurotiales,Eurotiomycetes,Ascomycota,SAP S/L/O,Saprotroph,52,Ascomycota
+Hanseniaspora valbyensis,11.46,4800,valbyensis,Hanseniaspora,Saccharomycodaceae,Saccharomycetales,Saccharomycetes,Ascomycota,SAP S/L/O,Saprotroph,49,Ascomycota
+Hyphopichia burtonii,12.4,6002,burtonii,Hyphopichia,Saccharomycetaceae,Saccharomycetales,Saccharomycetes,Ascomycota,SAP S/L/O,Saprotroph,52,Ascomycota
+Meliniomyces bicolor,82.38,18619,bicolor,Meliniomyces,Helotiaceae,Helotiales,Leotiomycetes,Ascomycota,ECM / ERM,Symbiotroph,27,Ascomycota
+Meliniomyces variabilis,55.86,20389,variabilis,Meliniomyces,Helotiaceae,Helotiales,Leotiomycetes,Ascomycota,Mycorrhizal / endophyte,Symbiotroph,18,Ascomycota
+Microdochium bolleyi,38.84,13177,bolleyi,Microdochium,Microdochiaceae,Xylariales,Sordariomycetes,Ascomycota,Endophyte / pathogen,Multi,71,Ascomycota
+Oidiodendron maius,46.43,16703,maius,Oidiodendron,Myxotrichaceae,Onygenales,Leotiomycetes,Ascomycota,ERM,Symbiotroph,11,Ascomycota
+Paraconiothyrium sporulosum,38.46,14745,sporulosum,Paraconiothyrium,Didymosphaeriaceae,Pleosporales,Dothideomycetes,Ascomycota,SAP S/L/O,Saprotroph,64,Ascomycota
+Phialocephala scopiformis,48.88,18573,scopiformis,Phialocephala,Vibrisseaceae,Helotiales,Leotiomycetes,Ascomycota,Endophyte,Symbiotroph,15,Ascomycota
+Rhizoscyphus ericae,57.41,16784,ericae,Rhizoscyphus,Helotiaceae,Helotiales,Leotiomycetes,Ascomycota,ERM,Symbiotroph,43,Ascomycota
+Setosphaeria turcica,43.01,12028,turcica,Setosphaeria,Pleosporaceae,Pleosporales,Dothideomycetes,Ascomycota,Pathogen,Pathotroph,56,Ascomycota
+Trichoderma asperellum,37.46,12586,asperellum,Trichoderma,Hypocreaceae,Hypocreales,Sordariomycetes,Ascomycota,Endophyte / SAP S/L/O,Multi,58,Ascomycota
+Trichoderma harzianum,40.98,14095,harzianum,Trichoderma,Hypocreaceae,Hypocreales,Sordariomycetes,Ascomycota,SAP S/L/O / pathogen,Multi,67,Ascomycota
+Trichoderma longibrachiatum,32.24,10938,longibrachiatum,Trichoderma,Hypocreaceae,Hypocreales,Sordariomycetes,Ascomycota,SAP S/L/O / pathogen,Multi,82,Ascomycota
+Wilcoxina mikolae ,117.29,13093,mikolae,Wilcoxina,Pyronemataceae,Pezizales,Pezizomycetes,Ascomycota,ECM,Symbiotroph,126,Ascomycota
+Xylona heveae,24.34,8205,heveae,Xylona,Xylonomycetaceae,Xylonomycetales,Xylonomycetes,Ascomycota,Endophyte,Symbiotroph,70,Ascomycota
+Amanita muscaria,40.7,18153,muscaria,Amanita,Amanitaceae,Agaricales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,30,Basidiomycota
+Armillaria gallica,85.34,25704,gallica,Armillaria,Physalacriaceae,Agaricales,Agaricomycetes,Basidiomycota,Pathogen,Pathotroph,187,Basidiomycota
+Armillaria solidipes,58.01,20811,solidipes,Armillaria,Physalacriaceae,Agaricales,Agaricomycetes,Basidiomycota,Pathogen,Pathotroph,249,Basidiomycota
+Boletus edulis,46.64,16933,edulis,Boletus,Boletaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,76,Basidiomycota
+Calocera cornea,33.24,13177,cornea,Calocera,Dacrymycetaceae,Dacrymycetales,Dacrymycetes,Basidiomycota,SAP BR,Saprotroph,95,Basidiomycota
+Calocera viscosa,29.1,12378,viscosa,Calocera,Dacrymycetaceae,Dacrymycetales,Dacrymycetes,Basidiomycota,SAP WR,Saprotroph,49,Basidiomycota
+Coniophora olivacea,39.07,14928,olivacea,Coniophora,Coniophoraceae,Boletales,Agaricomycetes,Basidiomycota,SAP BR,Saprotroph,97,Basidiomycota
+Coniophora puteana,42.97,13761,puteana,Coniophora,Coniophoraceae,Boletales,Agaricomycetes,Basidiomycota,SAP BR,Saprotroph,48,Basidiomycota
+Cronartium quercuum f. sp. fusiforme,76.57,13903,quercuum,Cronartium,Cronartiaceae,Pucciniales,Pucciniomycetes,Basidiomycota,Pathogen,Pathotroph,241,Basidiomycota
+Cylindrobasidium torrendii,31.57,13940,torrendii,Cylindrobasidium,Physalacriaceae,Agaricales,Agaricomycetes,Basidiomycota,SAP WR,Saprotroph,167,Basidiomycota
+Daedalea quercina,32.74,12199,quercina,Daedalea,Fomitopsidaceae,Polyporales,Agaricomycetes,Basidiomycota,SAP BR,Saprotroph,244,Basidiomycota
+Dichomitus squalens CBS463.89,36.87,14946,squalens,Dichomitus,Polyporaceae,Polyporales,Agaricomycetes,Basidiomycota,SAP WR,Saprotroph,140,Basidiomycota
+Dichomitus squalens CBS464.89,39.6,15295,squalens,Dichomitus,Polyporaceae,Polyporales,Agaricomycetes,Basidiomycota,SAP WR,Saprotroph,153,Basidiomycota
+Dichomitus squalens LYAD-421_SS1,42.75,12290,squalens,Dichomitus,Polyporaceae,Polyporales,Agaricomycetes,Basidiomycota,SAP WR,Saprotroph,152,Basidiomycota
+Dichomitus squalens OM18370.1,39.32,14950,squalens,Dichomitus,Polyporaceae,Polyporales,Agaricomycetes,Basidiomycota,SAP WR,Saprotroph,91,Basidiomycota
+Exidia glandulosa,78.17,26765,glandulosa,Exidia,Exidiaceae,Auriculariales,Agaricomycetes,Basidiomycota,SAP S/L/O,Saprotroph,158,Basidiomycota
+Fistulina hepatica,33.85,11244,hepatica,Fistulina,Fistulinaceae,Agaricales,Agaricomycetes,Basidiomycota,SAP BR,Saprotroph,125,Basidiomycota
+Gloeophyllum trabeum,37.18,11846,trabeum,Gloeophyllum,Gloeophyllaceae,Gloeophyllales,Agaricomycetes,Basidiomycota,SAP BR,Saprotroph,126,Basidiomycota
+Gyrodon lividus,43.05,11779,lividus,Gyrodon,Paxillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,65,Basidiomycota
+Hebeloma cylindrosporum ,38.23,15382,cylindrosporum,Hebeloma,Strophariaceae,Agaricales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,176,Basidiomycota
+Hydnum rufescens ,67.14,18665,rufescens,Hydnum,Hydnaceae,Cantharellales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,210,Basidiomycota
+Hypholoma sublateritium,48.03,17911,sublateritium,Hypholoma,Strophariaceae,Agaricales,Agaricomycetes,Basidiomycota,SAP S/L/O,Saprotroph,105,Basidiomycota
+Laccaria amethystina ,52.58,17553,amethystina,Laccaria,Hydnangiaceae,Agaricales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,47,Basidiomycota
+Laetiporus sulphureus,39.92,13774,sulphureus,Laetiporus,Fomitopsidaceae,Polyporales,Agaricomycetes,Basidiomycota,SAP BR,Saprotroph,40,Basidiomycota
+Paxillus adelphus,64.46,18999,adelphus,Paxillus,Paxillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,70,Basidiomycota
+Paxillus involutus ,58.3,17968,involutus,Paxillus,Paxillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,71,Basidiomycota
+Piloderma croceum ,59.33,21583,croceum,Piloderma,Atheliales,Atheliaceae,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,72,Basidiomycota
+Pisolithus microcarpus ,53.03,21064,microcarpus,Pisolithus,Sclerodermataceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,83,Basidiomycota
+Postia placenta,42.45,12541,placenta,Postia,Fomitopsidaceae,Polyporales,Agaricomycetes,Basidiomycota,SAP BR,Saprotroph,135,Basidiomycota
+Puccinia striiformis,117.31,20482,striiformis,Puccinia,Pucciniaceae,Pucciniales,Pucciniomycetes,Basidiomycota,Pathogen,Pathotroph,232,Basidiomycota
+Rhizopogon vinicolor,36.1,14469,vinicolor,Rhizopogon,Rhizopogonaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,80,Basidiomycota
+Scleroderma citrinum,56.14,21012,citrinum,Scleroderma,Sclerodermataceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,69,Basidiomycota
+Stereum hirsutum,46.51,14072,hirsutum,Stereum,Stereaceae,Russulales,Agaricomycetes,Basidiomycota,SAP WR,Saprotroph,61,Basidiomycota
+Suillus americanus,50.81,17163,americanus,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,137,Basidiomycota
+Suillus brevipes 117,NA,NA,brevipes,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,85,Basidiomycota
+Suillus brevipes 119,NA,NA,brevipes,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,134,Basidiomycota
+Suillus brevipes 12,NA,NA,brevipes,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,77,Basidiomycota
+Suillus brevipes 120,NA,NA,brevipes,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,82,Basidiomycota
+Suillus brevipes 121,NA,NA,brevipes,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,115,Basidiomycota
+Suillus brevipes 122,NA,NA,brevipes,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,121,Basidiomycota
+Suillus brevipes 123,NA,NA,brevipes,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,118,Basidiomycota
+Suillus brevipes 124,NA,NA,brevipes,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,85,Basidiomycota
+Suillus brevipes 125,NA,NA,brevipes,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,123,Basidiomycota
+Suillus brevipes 126,NA,NA,brevipes,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,72,Basidiomycota
+Suillus brevipes 2,52.03,21458,brevipes,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,156,Basidiomycota
+Suillus brevipes 22,NA,NA,brevipes,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,116,Basidiomycota
+Suillus decipiens,62.78,16894,decipiens,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,69,Basidiomycota
+Suillus granulatus,42.34,15802,granulatus,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,61,Basidiomycota
+Suillus hirtellus,49.94,17067,hirtellus,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,44,Basidiomycota
+Suillus luteus,44.49,16588,luteus,Suillus,Suillaceae,Boletales,Agaricomycetes,Basidiomycota,ECM,Symbiotroph,198,Basidiomycota
+Wolfiporia cocos ,50.48,12746,cocos,Wolfiporia,Polyporaceae,Polyporales,Agaricomycetes,Basidiomycota,SAP BR,Saprotroph,37,Basidiomycota
+Gonapodya prolifera,48.79,13902,prolifera,Gonapodya,Gonapodyaceae,Monoblepharidales,Monoblepharidomycetes,Chytridiomycota,SAP S/L/O,Saprotroph,65,Lower
+Rhizoclosmatium globosum,57.02,16990,globosum,Rhizoclosmatium,Chytridiaceae,Chytridiales,Chytridiomycetes,Chytridiomycota,SAP exuviae,Saprotroph,251,Lower
+Mortierella elongata,49.86,14969,elongata,Mortierella,Mortierellaceae,Mortierellales,Mortierellomycotina,Mucoromycota,Endophyte / SAP S/L/O,Multi,131,Lower
+Phycomyces blakesleeanus,53.9,16528,blakesleeanus,Phycomyces,Phycomycetaceae,Mucorales,Mucoromycotina,Mucoromycota,SAP S/L/O,Saprotroph,144,Lower
+Rhizopus microsporus ATCC11559,24.08,11355,microsporus,Rhizopus,Mucoraceae,Mucorales,Mucoromycotina,Mucoromycota,SAP S/L/O,Saprotroph,117,Lower
+Rhizopus microsporus var. microsporus ATCC52813,25.97,10905,microsporus,Rhizopus,Mucoraceae,Mucorales,Mucoromycotina,Mucoromycota,SAP S/L/O,Saprotroph,115,Lower
+Rhizopus microsporus var. microsporus ATCC52814 ,24.95,11502,microsporus,Rhizopus,Mucoraceae,Mucorales,Mucoromycotina,Mucoromycota,SAP S/L/O,Saprotroph,115,Lower
+Basidiobolus meristosporus,89.49,16111,meristosporus,Basidiobolus,Basidiobolaceae,Basidiobolales,Basidiobolomycetes,Zoopagomycota,SAP S/L/O / pathogen,Multi,1442,Lower
+Conidiobolus coronatus,39.9,10635,coronatus,Conidiobolus,Ancylistaceae,Entomophthorales,Entomophthoromycetes,Zoopagomycota,Pathogen,Pathotroph,164,Lower
+Conidiobolus thromboides,24.64,8867,thromboides,Conidiobolus,Ancylistaceae,Entomophthorales,Entomophthoromycetes,Zoopagomycota,SAP S/L/O / pathogen,Multi,180,Lower
+Martensiomyces pterosporus ,19.82,8435,pterosporus,Martensiomyces,Kickxellaceae,Kickxellales,Martensiomyces,Zoopagomycota,SAP S/L/O,Saprotroph,74,Lower
+Ramicandelaber brevisporus,25.53,9281,brevisporus,Ramicandelaber,Kickxellaceae,Kickxellales,Martensiomyces,Zoopagomycota,SAP S/L/O,Saprotroph,103,Lower
