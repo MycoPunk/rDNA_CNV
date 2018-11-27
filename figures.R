@@ -1,27 +1,42 @@
-setwd()
+setwd("")
 library(data.table)
-
+library(outliers)
 #hash second line work with full data, unhash to work with data minus the outlier 
-rDNA_by_taxa<- read.csv("rDNA_by_taxa.csv", sep = ",", header = TRUE)
+rDNA_by_taxa<- read.csv("genome_size.csv", sep = ",", header = TRUE)
 rDNA_by_taxa<- rDNA_by_taxa[ rDNA_by_taxa$Genus!="Basidiobolus",]
-
 
 #mean CN
 mean(rDNA_by_taxa$CN)
 median(rDNA_by_taxa$CN)
 
+#min and max
+range(rDNA_by_taxa$CN)
+#n by phyla
+sum(rDNA_by_taxa$group == "Ascomycota")
+sum(rDNA_by_taxa$group == "Basidiomycota")
+sum(rDNA_by_taxa$group == "Lower")
+
+
+#suillus only
+suillus<- rDNA_by_taxa[rDNA_by_taxa$Genus == "Suillus",]
+#no brev.
+suillus.wo.brev<- suillus[suillus$SE != "brevipes",]
+range(suillus.wo.brev$CN)
+
+
 #figure 1.d (Phylum)
 boxplot(rDNA_by_taxa$CN ~rDNA_by_taxa$group, main = "no_outlier") 
-
 cochran.test(CN~group, rDNA_by_taxa, inlying=FALSE) 
 aov<- aov(rDNA_by_taxa$CN~rDNA_by_taxa$group, rDNA_by_taxa)
 summary(aov(rDNA_by_taxa$CN~rDNA_by_taxa$group, rDNA_by_taxa))
 hsd<- TukeyHSD(aov)
+hsd
 
 ###Fig2
 #figure 2.a by trophic mode 
-#order goups to put milti last
-rDNA_by_taxa$TrophicMode=factor(rDNA_by_taxa$TrophicMode, levels=levels(rDNA_by_taxa$TrophicMode)[c(4,3,2,1)])
+#order goups for plotting
+rDNA_by_taxa$TrophicMode=factor(rDNA_by_taxa$TrophicMode,c("Pathotroph","Saprotroph","Symbiotroph","Multi"))
+
 #get n
 b <- boxplot(CN ~TrophicMode, data=rDNA_by_taxa, plot=0) 
 #set pars
@@ -144,7 +159,9 @@ cochran.test(CN ~ Lifestyle, data=Basid_df_with_enough_reps, inlying=FALSE)
 summary(aov(CN ~ Lifestyle, data=Basid_df_with_enough_reps))
 #not sig dif.
 
-#For fig S1
+
+
+###For fig S1
 setwd()
 library(data.table)
 library(outliers)
