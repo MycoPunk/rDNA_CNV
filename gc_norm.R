@@ -6,7 +6,7 @@
 #######
 
 #set directory
-setwd("~/Desktop/Project_ITS_CNV/genes and depth files/Rots_and_saps/")
+setwd("")
 
 #set libraries
 library(Biostrings)
