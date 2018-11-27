@@ -3,7 +3,7 @@ library(data.table)
 
 #hash second line work with full data, unhash to work with data minus the outlier 
 rDNA_by_taxa<- read.csv("rDNA_by_taxa.csv", sep = ",", header = TRUE)
-rDNA_by_taxa<- rDNA_by_taxa[ rDNA_by_taxa$Genus!="Basidiobolus",] #check this. 
+rDNA_by_taxa<- rDNA_by_taxa[ rDNA_by_taxa$Genus!="Basidiobolus",]
 
 
 #mean CN
