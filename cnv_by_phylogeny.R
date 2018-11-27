@@ -50,7 +50,7 @@ weights.df<- phyloWeights(p4d_named, dist.phylo = "patristic",
 weights.df
 
 
-#plot which traits to plot and their order 
+#define which traits to plot and their order 
 #take off negative scale
 barplot(p4d_named, center = FALSE, trait = c("CNV"))
 
@@ -122,9 +122,8 @@ library(ape)
 library(phylobase)
 library(caper)
 
-##read in file
+#read in file
 CNV_df<- read.csv("NEXUS_for_phylosignal_small.csv")
-View(CNV_df)
 
 #normallize genome size by the size of rDNA cassette 
 cassette_size_in_bp<- CNV_df$rDNA_CN*9100 #assume 9.1kb for average single cassette size
